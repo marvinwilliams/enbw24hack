@@ -1,0 +1,89 @@
+.ol-overlay.menu
+{	width: 30%;
+	background: #fff;
+	color: #333;
+	box-shadow: 0px 0px 5px #000;
+	padding: 0.5em;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+}
+/* style the close box */
+.ol-overlay.menu .ol-closebox
+{	color: #369;
+	left: 1em;
+	top: 0.5em;
+}
+.ol-overlay.menu .ol-closebox:before
+{	content:"\f0c9";
+	font-family:FontAwesome;
+}
+#menu
+{	padding-top: 1.5em;
+	font-size: 0.9em;
+}
+/* menu button */
+.ol-control.menu
+{	top: 0.5em;
+	left: 0.5em;
+}
+.ol-control.menu i
+{	color: #fff;
+}
+.ol-zoom
+{	left: auto;
+	right: 0.5em;
+}
+.ol-rotate 
+{	right: 3em;
+}
+.ol-touch .ol-rotate 
+{	right: 3.5em;
+}
+/**/
+.ol-overlay img
+{	max-width: 90%;
+}
+.data,
+.data p
+{	margin:0;
+	text-align: center;
+	font-size:0.9em;
+}
+#audioplayer{
+	  width: 480px;
+	  height: 60px;
+	  margin: 50px auto auto auto;
+    border: solid;
+}
+
+#pButton{
+    height:60px; 
+    width: 60px;
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+}
+
+.play{background: url('http://www.alexkatz.me/codepen/img/play.png') ;}
+.pause{background: url('http://www.alexkatz.me/codepen/img/pause.png') ;}
+
+#timeline{
+	  width: 400px;
+	  height: 20px;
+	  margin-top: 20px;
+	  float: left;
+	  border-radius: 15px;
+	  background: rgba(0,0,0,.3);
+    
+}
+#playhead{
+	  width: 18px;
+	  height: 18px;
+	  border-radius: 50%;
+	  margin-top: 1px;
+	  background: rgba(0, 0, 0,1);
+
+}

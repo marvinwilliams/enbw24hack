@@ -3,24 +3,27 @@ $(document).ready(function () {
     var latitude= 8.855703;
 
 
-  var map = new ol.Map({
-    target: 'map',
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.OSM()
-      })
-    ],
-    view: new ol.View({
-      center: ol.proj.transform([latitude, longitude], 'EPSG:4326', 'EPSG:3857'),
-      zoom: 11
-      // maxZoom: 17
-    })
-  });
-  var view = map.getView();
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({ 
+                    url:'http://{1-4}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                })
+                // source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.transform([latitude, longitude], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 11
+            // maxZoom: 17
+        })
+    });
+    var view = map.getView();
 
-  var geoJSONFormat = new ol.format.GeoJSON({
-    'defaultDataProjection': 'EPSG:4326' // view.getProjection()
-  });
+    var geoJSONFormat = new ol.format.GeoJSON({
+        'defaultDataProjection': 'EPSG:4326' // view.getProjection()
+    });
     var source = new ol.source.Vector({
         projection: view.getProjection(),
         format: new ol.format.GeoJSON()
@@ -42,8 +45,18 @@ $(document).ready(function () {
                 linedash: [40,40],
                 width: 3
             })
-        })]
+        })],
+        'IconBackground': new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 30,
+                fill: new ol.style.Fill({
+                    color: 'rgba(255,255,255,1)'
+                }),
+                stroke: new ol.style.Stroke({color: 'blue', width: 2})
+            })
+        })
     };
+
 
     var getLine = function(color, width) {
         return [new ol.style.Style({
@@ -80,15 +93,15 @@ $(document).ready(function () {
         }
 
         }
-        return new ol.style.Style({
+        return [styles['IconBackground'], new ol.style.Style({
             image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
-                anchor: [0.5, 0.5],
+                anchor: [0.5, 0.6],
                 anchorXUnits: 'fraction',
                 anchorYUnits: 'fraction',
                 src: iconSrc,
-                scale: 0.3
+                scale: 0.2
             }))
-        });
+        })];
     };
 
 
@@ -99,7 +112,7 @@ $(document).ready(function () {
 
         switch (geometryType) {
         case 'LineString':
-            console.log(feature);
+            // console.log(feature);
             var capacity = feature.get('capacity');
             var currentCapacity = feature.get('currentCapacity');
 
@@ -148,36 +161,28 @@ $(document).ready(function () {
         }
     });
 
-  var element = document.getElementById('popup');
+    var element = document.getElementById('popup');
 
-  var popup = new ol.Overlay({
-    element: element,
-    positioning: 'bottom-center',
-    stopEvent: false
-  });
-  map.addOverlay(popup);
+    var menu = new ol.control.Overlay ({closeBox : true, className: ("slide-left", "menu"), content: $("#menu") });
+    map.addControl(menu);
+    console.log(map);
+    console.log(menu);
+	  // A toggle control to show/hide the menu
+	  var t = new ol.control.Toggle(
+			  {	html: '<i class="fa fa-bars" ></i>',
+				  className: "menu",
+				  title: "Menu",
+				  onToggle: function() { menu.toggle(); }
+			  });
+	  map.addControl(t);
 
-  // display popup on click
-  map.on('click', function (evt) {
-    var feature = map.forEachFeatureAtPixel(evt.pixel,
-      function (feature, layer) {
-        console.log(feature);
-        return feature;
-      });
-    if (feature) {
-      var geometry = feature.getGeometry();
-      var coord = geometry.getCoordinates();
-      popup.setPosition(coord);
-      $(element).popover('destroy')
-        .popover({
-          'placement': 'top',
-          'html': true,
-          'content': feature.get('Name')
-        })
-        .popover('show');
-    } else {
-      $(element).popover('destroy');
-    }
-  });
+    // display popup on click
+    map.on('click', function (evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+        function (feature, layer) {
+           console.log(feature);
+           return feature;
+        });
+    });
 
 });
