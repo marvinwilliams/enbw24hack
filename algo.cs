@@ -18,7 +18,7 @@ namespace Project2
             public Edge(int src, int dest, double capacity ,double flow)
             {
                 this.src = src;
-                this.dest = dest;              
+                this.dest = dest;
                 this.capacity = capacity;
                 this.flow = flow;
             }
@@ -56,14 +56,14 @@ namespace Project2
             {
                 public int src;
                 public int dest;
-                public double resistance;                
+                public double resistance;
                 public double flow;
 
                 public Feed_Cons(int src, int dest, double resistance, double flow)
                 {
                     this.src = src;
                     this.dest = dest;
-                    this.resistance = resistance;                    
+                    this.resistance = resistance;
                     this.flow = flow;
                 }
             }
@@ -92,7 +92,7 @@ namespace Project2
         {
 
             int v_total = 12;
-            int e_total = 36;            
+            int e_total = 36;
 
                 // Widerstände von Feed zu Consumption aus EXCEL-Berechnung
 
@@ -432,7 +432,7 @@ namespace Project2
             // xxxxxxxx Berechnung solange noch ein Einspeiser in der Einspeiserliste enthalten ist  xxxxx
             while (v_Feed.Count > 0) {
 
-                
+
                 // Leitwerte zwischen den Verbrauchern und den verbleibenden Einspeisern aufaddieren
                 int c = 0;
                 foreach (Vertex vertexElement in v_Consumption)
@@ -452,13 +452,13 @@ namespace Project2
                     }
                     c++;
                 }
-                
+
                 // Ermittlung des Flusses zwischen den Verbrauchern und den verbleibenden Einspeisern
                 c = 0;
-                
+
                 foreach (Vertex v_ConsumptionElement in v_Consumption)
                 {
-                    
+
                     f = 0; // Feed-Item
                     foreach (Vertex v_FeedElement in v_Feed)
                     {
@@ -468,17 +468,17 @@ namespace Project2
                         } else
                         {
 
-                        feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].flow = v_ConsumptionElement.consumptionRemaining * (1 / feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].resistance) / v_ConsumptionElement.leitwertRamaining;                       
+                        feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].flow = v_ConsumptionElement.consumptionRemaining * (1 / feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].resistance) / v_ConsumptionElement.leitwertRamaining;
                         f++;
                         }
                     }
                     c++; // Consumption-Item
                 }
-                
+
                 // Ermittlung des Einspeisers, der maximal überlastet ist
 
                 double[] v_flow = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                                               
+
                 foreach (Vertex v_ConsumptionElement in v_Consumption)
                 {
                     foreach (Vertex v_FeedElement in v_Feed)
@@ -488,13 +488,13 @@ namespace Project2
                             Console.WriteLine("feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].flow weist ungültigen Wert auf");
                             Console.ReadKey();
                         }
-                        else { 
+                        else {
                         v_flow[v_FeedElement.ID] += feed_cons[v_FeedElement.ID, v_ConsumptionElement.ID].flow;
                         }
 
                     }
                 }
-                
+
                 int v = 0;
                 double maxOverload = 0;
                 int ID_maxOverload = 0;
@@ -504,7 +504,7 @@ namespace Project2
                 {
                     if (v_flow[vertexElement.ID] / vertexElement.feedTotal > maxOverload)
                     {
-                        if (v_flow[vertexElement.ID] / vertexElement.feedTotal > 1) { 
+                        if (v_flow[vertexElement.ID] / vertexElement.feedTotal > 1) {
 
                         ID_maxOverload = vertexElement.ID;
                         listItem_maxOverload = v;
@@ -517,28 +517,28 @@ namespace Project2
                     v++;
                 }
 
-                
+
 
                 // Die Flüsse vom max. überlasteten Einspeiser werden prozentual auf die verfügbare Einspeisemenge reduziert;
                 foreach (Vertex vertexElement in v_Consumption)
                 {
                     if (v_Feed.Count > 1) {
-                        feed_cons[ID_maxOverload, vertexElement.ID].flow = feed_cons[ID_maxOverload, vertexElement.ID].flow * 1 / (maxOverload);                        
+                        feed_cons[ID_maxOverload, vertexElement.ID].flow = feed_cons[ID_maxOverload, vertexElement.ID].flow * 1 / (maxOverload);
                     }
                     else
                     {
                         feed_cons[ID_maxOverload, vertexElement.ID].flow = vertexElement.consumptionRemaining;
                     }
                 }
-                
+
                 c = 0;
                 foreach (Vertex vertexElement in v_Consumption)
                 {
                     v_Consumption[c].consumptionRemaining -= feed_cons[ID_maxOverload, vertexElement.ID].flow;
-                    
+
                     c++;
                 }
-                               
+
                 // Der Einspeiser wird aus der weiteren Berechnung herausgenommen.
 
                 if (listItem_maxOverload < v_total)
@@ -555,9 +555,9 @@ namespace Project2
                     { Console.WriteLine("feed cons flow von " + s + " nach " + d + "   " + feed_cons[s, d].flow); }
                 }
             }
-            
-            // Kanten je Pfadgruppe einlesen 
-            
+
+            // Kanten je Pfadgruppe einlesen
+
             List<PathGroup> pathGroupList = new List<PathGroup>();
             PathGroup pathGroup;
             //public PathGroup(pathGroupSrc, pathGroupdest, edgeSrc, edgeDest, flowShare, flow)
@@ -1088,7 +1088,7 @@ namespace Project2
 
 
             // Den Pfadgruppen den errechneten Fluss beimessen
-            
+
             for (int i = 0; i < pathGroupList.Count; i++)
             {
 
@@ -1099,8 +1099,8 @@ namespace Project2
 
                         if ((pathGroupList[i].pathGroupSrc == s) && (pathGroupList[i].pathGroupdest == d))
                         {
-                            pathGroupList[i].flow = pathGroupList[i].flowShare * feed_cons[s, d].flow;                            
-                        }                        
+                            pathGroupList[i].flow = pathGroupList[i].flowShare * feed_cons[s, d].flow;
+                        }
                     }
                 }
             }
@@ -1117,12 +1117,12 @@ namespace Project2
                         if (pathGroupElement.edgeSrc == s && pathGroupElement.edgeDest == d)
                         {
                             edge[s, d].flow += pathGroupElement.flow;
-                            
+
                         }
                     }
 
                 }
-            }                                                        
+            }
 
             // Resultierende Flussrichtung je Kante ermitteln und Gegenrichtungsfluss abziehen
 
@@ -1145,10 +1145,10 @@ namespace Project2
                         }
                    }
                     else
-                    
+
                     {
 
-                        if (edge[d, s].flow > 0) { 
+                        if (edge[d, s].flow > 0) {
                         edge[d, s].flow -= edge[s, d].flow;
                         edge[s, d].flow = 0;
                         }
@@ -1159,10 +1159,10 @@ namespace Project2
 
                         }
                     }
-                    
+
                 }
             }
-            
+
             //
 
             for (int s = 0; s < v_total; s++)
@@ -1170,7 +1170,7 @@ namespace Project2
                 for (int d = 0; d < v_total; d++)
                 {
                     if (Math.Abs(edge[s, d].flow) > 0)
-                    {                       
+                    {
                         Console.WriteLine("edge flow von      " + edge[s, d].src + " nach " + edge[s, d].dest + "   " + edge[s, d].flow);
                 }
                 }
@@ -1180,6 +1180,6 @@ namespace Project2
 
         }
 
-        
-    }      
+
+    }
 }
