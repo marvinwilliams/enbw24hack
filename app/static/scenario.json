@@ -11,7 +11,7 @@
         },
         {
             "id": 1,
-            "feeedTotal": 156000,
+            "feed_total": 156000,
             "consumption_total": 0,
             "feed_remaining": 156000,
             "consumption_remaining": 0,
@@ -21,7 +21,7 @@
         },
         {
             "id": 2,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 0,
             "feed_remaining": 0,
             "consumption_remaining": 0,
@@ -31,7 +31,7 @@
         },
         {
             "id": 3,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 0,
             "feed_remaining": 0,
             "consumption_remaining": 0,
@@ -41,7 +41,7 @@
         },
         {
             "id": 4,
-            "feeedTotal": 156000,
+            "feed_total": 156000,
             "consumption_total": 0,
             "feed_remaining": 156000,
             "consumption_remaining": 0,
@@ -51,7 +51,7 @@
         },
         {
             "id": 5,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 0,
             "feed_remaining": 0,
             "consumption_remaining": 0,
@@ -61,7 +61,7 @@
         },
         {
             "id": 6,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 0,
             "feed_remaining": 0,
             "consumption_remaining": 0,
@@ -71,7 +71,7 @@
         },
         {
             "id": 7,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 40000,
             "feed_remaining": 0,
             "consumption_remaining": 40000,
@@ -81,7 +81,7 @@
         },
         {
             "id": 8,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 64000,
             "feed_remaining": 0,
             "consumption_remaining": 64000,
@@ -91,7 +91,7 @@
         },
         {
             "id": 9,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 32000,
             "feed_remaining": 0,
             "consumption_remaining": 32000,
@@ -101,7 +101,7 @@
         },
         {
             "id": 10,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 72000,
             "feed_remaining": 0,
             "consumption_remaining": 72000,
@@ -111,7 +111,7 @@
         },
         {
             "id": 11,
-            "feeedTotal": 0,
+            "feed_total": 0,
             "consumption_total": 56000,
             "feed_remaining": 0,
             "consumption_remaining": 56000,

@@ -9,8 +9,10 @@ def init_network():
     with open("app/static/data.json", "r") as data_file:
         data = json.load(data_file)
 
-    global n_vertices = data["n_vertices"]
-    global n_edges = data["n_edges"] * 2
+    global n_vertices
+    n_vertices = data["n_vertices"]
+    global n_edges
+    n_edges = data["n_edges"] * 2
 
     global feed_cons
     for fc in data["feed_cons"]:
@@ -24,28 +26,29 @@ def eval_network():
     v_Feed = []
     v_Consumption = []
 
+    print(data)
     for v in data["vertex"]:
-        if (v["consumptionTotal"] > 0):
+        if (v["consumption_total"] > 0):
             v_Consumption.append(v)
-        if (v["feedTotal"] > 0):
+        if (v["feed_total"] > 0):
             v_Feed.append(v)
 
     pathGroupList = []
 
-    for pg in data["PathGroup"]:
+    for pg in data["path_group"]:
         pathGroupList.append(pg)
 
     while (len(v_Feed) > 0):
         for c in v_Consumption:
-            c["leitwertRemaining"] = 0
+            c["leitwert_remaining"] = 0
 
         for c in v_Consumption:
             for f in v_Feed:
-                c["leitwertRemaining"] += 1.0 / feed_cons[f["id"]][f["id"]]["resistance"]
+                c["leitwert_remaining"] += 1.0 / feed_cons[f["id"]][f["id"]]["resistance"]
 
         for c in v_Consumption:
             for f in v_Feed:
-                feed_cons[f["id"]][c["id"]]["flow"] = c["consumptionRemaining"] * (1.0 / feed_cons[f["id"]][c["id"]]["resistance"]) / c["leitwertRemaining"]                       
+                feed_cons[f["id"]][c["id"]]["flow"] = c["consumption_remaining"] * (1.0 / feed_cons[f["id"]][c["id"]]["resistance"]) / c["leitwert_remaining"]                       
         
         v_flow = [0]*n_vertices
 
@@ -57,11 +60,11 @@ def eval_network():
         id_maxOverload = 0
         listItem_maxOverload = 9999999
         for f in v_Feed:
-            if ((1.0 * v_flow[f["id"]]) / f["feedTotal"] > maxOverload):
-                if ((1.0 * v_flow[f["id"]]) / f["feedTotal"] > 1):
+            if ((1.0 * v_flow[f["id"]]) / f["feed_Total"] > maxOverload):
+                if ((1.0 * v_flow[f["id"]]) / f["feed_Total"] > 1):
                     id_maxOverload = f["id"]
                     listItem_maxOverload = v
-                    maxOverload = (1.0 * v_flow[f["id"]]) / f["feedTotal"]
+                    maxOverload = (1.0 * v_flow[f["id"]]) / f["feed_Total"]
                 else:
                     print("Kein Einspeiser überlastet")
             v+=1
@@ -70,9 +73,9 @@ def eval_network():
             if (len(v_Feed) > 1):
                 feed_cons[id_maxOverload][c["id"]]["flow"] = feed_cons[id_maxOverload][c["id"]]["flow"] * 1.0 / (maxOverload) 
             else:
-                feed_cons[id_maxOverload][c["id"]]["flow"] = c["consumptionRemaining"]
+                feed_cons[id_maxOverload][c["id"]]["flow"] = c["consumption_remaining"]
         for c in v_Consumption:
-            c["consumptionRemaining"] -= feed_cons[id_maxOverload][c["id"]]["flow"]
+            c["consumption_remaining"] -= feed_cons[id_maxOverload][c["id"]]["flow"]
 
         if (listItem_maxOverload < n_vertices):
             v_Feed.pop(listItem_maxOverload)
@@ -84,22 +87,17 @@ def eval_network():
                 tmp = {"src":i, "dest":j, "flow":feed_cons[i][j]["flow"]}
                 cons_flow.append(tmp)
     cons_flow_json = json.dumps(cons_flow)
-    return cons_flow_json
-
-
-
-
 
     for i in range(0, len(pathGroupList)):
         for s in range(0, n_vertices):
             for d in range(0, n_vertices):
-                if (pathGroupList[i]["pathGroupSrc"] == s) and (pathGroupList[i]["pathGroupdest"] == d):
-                    pathGroupList[i]["flow"] = pathGroupList[i]["flowShare"] * feed_cons[s][d]["flow"]                            
+                if (pathGroupList[i]["path_group_src"] == s) and (pathGroupList[i]["path_group_dest"] == d):
+                    pathGroupList[i]["flow"] = pathGroupList[i]["flow_share"] * feed_cons[s][d]["flow"]                            
 
     for pg in pathGroupList:
         for s in range(0, n_vertices):
             for d in range(0, n_vertices):
-                if pg["edgeSrc"] == s and pg["edgeDest"] == d:
+                if pg["edge_src"] == s and pg["edge_dest"] == d:
                     edge[s][d]["flow"] += pg["flow"]
 
 
@@ -128,4 +126,7 @@ def eval_network():
                 edge_flow.append(tmp)
     print(edge_flow)
     edge_flow_json = json.dumps(edge_flow)
+
+init_network()
+eval_network()
 
