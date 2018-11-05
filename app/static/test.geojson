@@ -3,134 +3,134 @@
    "features": [
   {
     "type": "Feature",
-    "id": "0",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 9.053219155,49.01189669 ]
     },
     "properties": {
+        "id": "0",
+        "nodeType": "Hochspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "1",
-    "nodeType": "Hoechstspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.562129,49.132546 ]
     },
     "properties": {
+        "id": "1",
+        "nodeType": "Hoechstspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "2",
-    "nodeType": "Windkraftanlage",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.885450269,49.13896124 ]
     },
     "properties": {
+        "id": "2",
+        "nodeType": "Windkraftanlage"
     }
   },
   {
     "type": "Feature",
-    "id": "3",
-    "nodeType": "Windkraftanlage",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 9.108476368,49.11116186 ]
     },
     "properties": {
+        "id": "3",
+        "nodeType": "Windkraftanlage"
     }
   },
   {
     "type": "Feature",
-    "id": "4",
-    "nodeType": "Hoechstspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 9.2083388,49.17678978 ]
     },
     "properties": {
+        "id": "4",
+        "nodeType": "Hoechstspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "5",
-    "nodeType": "Photovoltaikanlage",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.665752917,49.04914786 ]
     },
     "properties": {
+        "id": "5",
+        "nodeType": "Photovoltaikanlage"
     }
   },
   {
     "type": "Feature",
-    "id": "6",
-    "nodeType": "Knoten",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.892107764,49.04914786 ]
     },
     "properties": {
+        "id": "6",
+        "nodeType": "Knoten"
     }
   },
   {
     "type": "Feature",
-    "id": "7",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 9.185037566,49.03204055 ]
     },
     "properties": {
+        "id": "7",
+        "nodeType": "Hochspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "8",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.562129,49.01104132 ]
     },
     "properties": {
+        "id": "8",
+        "nodeType": "Hochspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "9",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.665752917,49.01104132 ]
     },
     "properties": {
+        "id": "9",
+        "nodeType": "Hochspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "10",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.792245332,49.01104132 ]
     },
     "properties": {
+        "id": "10",
+        "nodeType": "Hochspannungsstation"
     }
   },
   {
     "type": "Feature",
-    "id": "11",
-    "nodeType": "Hochspannungsstation",
     "geometry": {
        "type": "Point",
        "coordinates":  [ 8.946898952,49.01104132 ]
     },
     "properties": {
+        "id": "11",
+        "nodeType": "Hochspannungsstation"
     }
   }
 ]
