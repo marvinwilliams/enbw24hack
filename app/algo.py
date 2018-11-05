@@ -4,6 +4,8 @@ import numpy as np
 n_vertices = 0
 n_edges = 0
 feed_cons = {}
+edge = {}
+pathGroupList = []
 
 def init_network():
     with open("app/static/data.json", "r") as data_file:
@@ -20,23 +22,28 @@ def init_network():
             feed_cons[fc["src"]] = {}
         feed_cons[fc["src"]][fc["dest"]] = fc
 
+    global edge 
+    for e in data["edge"]:
+        if (e["src"] not in edge):
+            edge[e["src"]] = {}
+        edge[e["src"]][e["dest"]] = e
+
+    global pathGroupList
+    for pg in data["path_group"]:
+        pathGroupList.append(pg)
+
 def eval_network():
     with open("app/static/scenario.json", "r") as data_file:
         data = json.load(data_file)
     v_Feed = []
     v_Consumption = []
 
-    print(data)
     for v in data["vertex"]:
         if (v["consumption_total"] > 0):
             v_Consumption.append(v)
         if (v["feed_total"] > 0):
             v_Feed.append(v)
 
-    pathGroupList = []
-
-    for pg in data["path_group"]:
-        pathGroupList.append(pg)
 
     while (len(v_Feed) > 0):
         for c in v_Consumption:
@@ -60,11 +67,11 @@ def eval_network():
         id_maxOverload = 0
         listItem_maxOverload = 9999999
         for f in v_Feed:
-            if ((1.0 * v_flow[f["id"]]) / f["feed_Total"] > maxOverload):
-                if ((1.0 * v_flow[f["id"]]) / f["feed_Total"] > 1):
+            if ((1.0 * v_flow[f["id"]]) / f["feed_total"] > maxOverload):
+                if ((1.0 * v_flow[f["id"]]) / f["feed_total"] > 1):
                     id_maxOverload = f["id"]
                     listItem_maxOverload = v
-                    maxOverload = (1.0 * v_flow[f["id"]]) / f["feed_Total"]
+                    maxOverload = (1.0 * v_flow[f["id"]]) / f["feed_total"]
                 else:
                     print("Kein Einspeiser überlastet")
             v+=1
@@ -86,7 +93,6 @@ def eval_network():
             if feed_cons[i][j]["flow"] != 0:
                 tmp = {"src":i, "dest":j, "flow":feed_cons[i][j]["flow"]}
                 cons_flow.append(tmp)
-    cons_flow_json = json.dumps(cons_flow)
 
     for i in range(0, len(pathGroupList)):
         for s in range(0, n_vertices):
@@ -124,9 +130,6 @@ def eval_network():
             if abs(edge[s][d]["flow"]) > 0:
                 tmp = edge[s][d]
                 edge_flow.append(tmp)
-    print(edge_flow)
-    edge_flow_json = json.dumps(edge_flow)
 
-init_network()
-eval_network()
+    return json.dumps([cons_flow, edge_flow])
 
