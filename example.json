@@ -1,0 +1,19 @@
+{
+    "n_vertices": 12,
+    "n_edges": 36,
+    "feed_cons":[
+	{"src": 0, "dest": 0, "resistance": 1, "flow": 0},
+	{"src": 1, "dest": 2, "resistance": 1, "flow": 0},
+	{"src": 0, "dest": 2, "resistance": 1, "flow": 0}
+    ],
+    "vertex": [
+	{"ID": 0, "feedTotal": 0, "consumptionRemaining": 1, "leitwertRemaining": 0},
+	{"ID": 1, "feedTotal": 4, "consumptionRemaining": 1, "leitwertRemaining": 0},
+	{"ID": 2, "feedTotal": 2, "consumptionRemaining": 1, "leitwertRemaining": 0}
+    ],
+    "edge": [
+	{"src": 1, "dest": 4, "cap": 12, "flow": 2},
+	{"src": 1, "dest": 4, "cap": 112, "flow": 2},
+	{"src": 2, "dest": 3, "cap": 22, "flow": 2}
+    ]
+}
