@@ -53,19 +53,45 @@ var updateChart = function (count) {
 	count = count || 1;
 
 	for (var j = 0; j < count; j++) {
-		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+      var smallRand = Math.round(1 + Math.random() *(-1-1));
+      var bigRand = 1.4 * Math.round(4.5 + Math.random() *(-4-4));
+      if (bigRand < 6) {
+          bigRand = 0;
+      }
+		yVal = yVal + smallRand + bigRand;
+
 		dps.push({
 			x: xVal,
 			y: yVal
 		});
+
+      var smallRand = Math.round(1 + Math.random() *(-1-1));
+      var bigRand = 1.4 * Math.round(4 + Math.random() *(-4-4));
+      if (bigRand < 6) {
+          bigRand = 0;
+      }
+		  yVal = yVal + smallRand + bigRand;
 		  dps2.push({
 			    x: xVal,
 			    y: yVal
 		  });
+      var smallRand = Math.round(1 + Math.random() *(-1-1));
+      var bigRand = 1.4 * Math.round(4.5 + Math.random() *(-4-4));
+      if (bigRand < 6) {
+          bigRand = 0;
+      }
+		  yVal = yVal + smallRand + bigRand;
 	    dps3.push({
 			    x: xVal,
 			    y: yVal
 		  });
+
+      var smallRand = Math.round(1 + Math.random() *(-1-1));
+      var bigRand = 1.4 * Math.round(4 + Math.random() *(-4-4));
+      if (bigRand < 6) {
+          bigRand = 0;
+      }
+		  yVal = yVal + smallRand + bigRand;
 	    dps4.push({
 			    x: xVal,
 			    y: yVal
