@@ -32,8 +32,8 @@ def index():
 
 @app.route('/points_of_interest')
 def points_of_interest():
-    print("called");
-    return send_file('static/test.geojson');
+    print("called")
+    return send_file('static/test.geojson')
 
 @app.route('/eval_network')
 def call_eval_network():
