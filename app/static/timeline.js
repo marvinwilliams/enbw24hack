@@ -8,7 +8,7 @@ $(document).ready(function(){
     var timeline = document.getElementById('timeline'); // timeline
 
     // timeline width adjusted for playhead
-    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+    var timelineWidth = 200;
 
     // play button event listenter
     pButton.addEventListener("click", play);

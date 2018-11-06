@@ -1,14 +1,18 @@
-$(document).ready(function () {
-    var longitude  =49.078191;
-    var latitude= 8.855703;
+$(document).ready(function() {
+    var longitude = 49.078191;
+    var latitude = 8.855703;
 
+    // var timeLineOverlay = new ol.Overlay({
+    //     element: document.getElementById('audioplayer'),
+    //     positioning: 'bottom-center'
+    // });
 
     var map = new ol.Map({
         target: 'map',
         layers: [
             new ol.layer.Tile({
-                source: new ol.source.XYZ({ 
-                    url:'http://{1-4}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                source: new ol.source.XYZ({
+                    url: 'http://{1-4}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
                 })
                 // source: new ol.source.OSM()
             })
@@ -32,7 +36,10 @@ $(document).ready(function () {
     var circle = new ol.style.Circle({
         radius: 7,
         fill: null,
-        stroke: new ol.style.Stroke({color: 'red', width: 5})
+        stroke: new ol.style.Stroke({
+            color: 'red',
+            width: 5
+        })
     });
 
     var styles = {
@@ -42,7 +49,7 @@ $(document).ready(function () {
         'Line': [new ol.style.Style({
             stroke: new ol.style.Stroke({
                 color: [255, 0, 0, 1],
-                linedash: [40,40],
+                linedash: [40, 40],
                 width: 3
             })
         })],
@@ -52,9 +59,25 @@ $(document).ready(function () {
                 fill: new ol.style.Fill({
                     color: 'rgba(255,255,255,1)'
                 }),
-                stroke: new ol.style.Stroke({color: 'blue', width: 2})
+                stroke: new ol.style.Stroke({
+                    color: 'blue',
+                    width: 2
+                })
+            })
+        }),
+        'IconBackgroundHighlighted': new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 30,
+                fill: new ol.style.Fill({
+                    color: 'rgba(255,255,255,1)'
+                }),
+                stroke: new ol.style.Stroke({
+                    color: 'red',
+                    width: 3
+                })
             })
         })
+
     };
 
 
@@ -67,34 +90,49 @@ $(document).ready(function () {
         })];
     };
 
-    var getImageIcon = function(factoryType) {
+    var getImageSrcByType = function(factoryType) {
         var iconSrc = '/static/data/default.png';
-
         switch (factoryType) {
-        case 'Hochspannungsstation': {
-            iconSrc = '/static/data/Hochspannungsstation.png';
-            break;
-        }
-        case 'Hoechstspannungsstation': {
-            iconSrc = '/static/data/Hoechstspannungsstation.png';
-            break;
-        }
-        case 'Photovoltaikanlage' : {
-            iconSrc =  '/static/data/Photovoltaikanlage.png';
-            break;
-        }
-        case 'Windkraftanlage' : {
-            iconSrc = '/static/data/Windkraftanlage.png';
-            break;
-        }
-        case 'Knoten' : {
-            iconSrc = '/static/data/Hochspannungsstation.png';
-            break;
-        }
+            case 'Hochspannungsstation':
+                {
+                    iconSrc = '/static/data/Hochspannungsstation.png';
+                    break;
+                }
+            case 'Hoechstspannungsstation':
+                {
+                    iconSrc = '/static/data/Hoechstspannungsstation.png';
+                    break;
+                }
+            case 'Photovoltaikanlage':
+                {
+                    iconSrc = '/static/data/Photovoltaikanlage.png';
+                    break;
+                }
+            case 'Windkraftanlage':
+                {
+                    iconSrc = '/static/data/Windkraftanlage.png';
+                    break;
+                }
+            case 'Knoten':
+                {
+                    iconSrc = '/static/data/Hochspannungsstation.png';
+                    break;
+                }
 
         }
-        return [styles['IconBackground'], new ol.style.Style({
-            image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
+        return iconSrc;
+    };
+
+    var getImageIcon = function(factoryType, highlighted) {
+        var iconSrc = getImageSrcByType(factoryType);
+
+        var background = styles['IconBackground'];
+        if (highlighted) {
+            background = styles['IconBackgroundHighlighted'];
+        }
+
+        return [background, new ol.style.Style({
+            image: new ol.style.Icon( /** @type {module:ol/style/Icon~Options} */ ({
                 anchor: [0.5, 0.6],
                 anchorXUnits: 'fraction',
                 anchorYUnits: 'fraction',
@@ -104,36 +142,40 @@ $(document).ready(function () {
         })];
     };
 
+    var getLineType = function(feature) {
+        var capacity = feature.get('capacity');
+        var currentCapacity = feature.get('currentCapacity');
 
-    var styleFunction = function (feature, resolution) {
+        if (currentCapacity == undefined || currentCapacity == null) {
+            currentCapacity = 0;
+        }
+
+        if (currentCapacity > capacity) {
+            return getLine([255, 0, 0, 1], 3);
+        } else if (currentCapacity > capacity / 2) {
+            return getLine([255, 255, 0, 1], 2);
+        } else {
+            return getLine([0, 255, 0, 1], 2);
+        }
+
+    };
+
+    var styleFunction = function(feature, resolution) {
         var geometryType = feature.getGeometry().getType();
         // console.log(feature);
         var factoryType = feature.get('nodeType');
-
         switch (geometryType) {
-        case 'LineString':
-            // console.log(feature);
-            var capacity = feature.get('capacity');
-            var currentCapacity = feature.get('currentCapacity');
-
-            if (currentCapacity == undefined || currentCapacity == null) {
-                currentCapacity = 0;
-            }
-
-            if (currentCapacity > capacity) {
-                return getLine([255, 0, 0, 1], 3);
-            } else if (currentCapacity > capacity / 2) {
-                return getLine([255, 255, 0, 1], 2);
-            } else {
-                return getLine([0, 255, 0, 1], 2);
-            }
-            break;
-        case 'Point':
-            return getImageIcon(factoryType);
-            break;
-        default: {
-            return styles['Point'];
-        }
+            case 'LineString':
+                // console.log(feature);
+                return getLineType(feature);
+                break;
+            case 'Point':
+                return getImageIcon(factoryType, false);
+                break;
+            default:
+                {
+                    return styles['Point'];
+                }
         }
     };
 
@@ -151,38 +193,81 @@ $(document).ready(function () {
         dataType: 'json',
         contentType: 'application/json',
         mimeType: 'application/json',
-        success: function (data) {
+        success: function(data) {
             // var features = geoJSONFormat.readFeatures(data.result, {featureProjection: view.getProjection()});
-            var features = geoJSONFormat.readFeatures(data, {featureProjection: view.getProjection()});
+            var features = geoJSONFormat.readFeatures(data, {
+                featureProjection: view.getProjection()
+            });
             source.addFeatures(features);
         },
-        error: function (data, status, er) {
+        error: function(data, status, er) {
             console.log(er);
         }
     });
 
     var element = document.getElementById('popup');
 
-    var menu = new ol.control.Overlay ({closeBox : true, className: ("slide-left", "menu"), content: $("#menu") });
+    var menu = new ol.control.Overlay({
+        closeBox: true,
+        className: ("slide-left", "menu"),
+        content: $("#menu")
+    });
     map.addControl(menu);
-    console.log(map);
-    console.log(menu);
-	  // A toggle control to show/hide the menu
-	  var t = new ol.control.Toggle(
-			  {	html: '<i class="fa fa-bars" ></i>',
-				  className: "menu",
-				  title: "Menu",
-				  onToggle: function() { menu.toggle(); }
-			  });
-	  map.addControl(t);
+    // A toggle control to show/hide the menu
+    var t = new ol.control.Toggle({
+        html: '<i class="fa fa-bars" ></i>',
+        className: "menu",
+        title: "Menu",
+        onToggle: function() {
+            menu.toggle();
+        }
+    });
+    map.addControl(t);
+    menu.toggle();
 
-    // display popup on click
-    map.on('click', function (evt) {
-        var feature = map.forEachFeatureAtPixel(evt.pixel,
-        function (feature, layer) {
-           console.log(feature);
-           return feature;
-        });
+    var select = new ol.interaction.Select({
+        // select: selectedStyle
+    });
+    map.addInteraction(select);
+
+    // On selected => show/hide popup
+    select.getFeatures().on('add', function(e) {
+
+        var feature = e.element;
+        var geometryType = feature.getGeometry().getType();
+        console.log(feature);
+
+        if (geometryType == 'Point') {
+            feature.setStyle(getImageIcon(feature.get("nodeType"), true));
+            var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
+            var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
+            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
+            var content = $("<div>")
+                .append(img)
+                .append(info).append(id);
+            $(".data").html(content);
+
+        } else if (geometryType == 'LineString') {
+            // feature.setStyle([]);
+            feature.setStyle(getLineType(feature));
+            var info = $("<div>").append($("<h3>").text("Typ: " + "Kante"));
+            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
+            var capacity = $("<div>").append($("<h3>").text("Name: " + feature.get("capacity")));
+            var content = $("<div>")
+                .append(info).append(id).append(capacity);
+            $(".data").html(content);
+
+        }
+    });
+    select.getFeatures().on('remove', function(e) {
+        var feature = e.element;
+        var geometryType = feature.getGeometry().getType();
+        if (geometryType == 'Point') {
+            feature.setStyle(getImageIcon(feature.get("nodeType"), false));
+        } else if (geometryType == 'LineString') {
+            // feature.setStyle(getLineType(feature));
+        }
+        $(".data").html("");
     });
 
 });
