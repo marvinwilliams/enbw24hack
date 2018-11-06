@@ -28,7 +28,9 @@ def call_eval_network():
 def get_post_javascript_data():
     jsdata = request.form['javascript_data']
     print(jsdata)
-    return jsdata
+    print("Updating json...")
+    return algo.eval_network()
+
 
 def get_cursor():
     return conn.cursor(cursor_factory=psycopg2.extras.DictCursor)

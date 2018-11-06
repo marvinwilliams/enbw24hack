@@ -154,9 +154,4 @@ def eval_network():
                 tmp = edge[s][d]
                 edge_flow.append(tmp)
 
-    print(cons_flow)
     return json.dumps([cons_flow, edge_flow])
-
-
-init_network()
-eval_network()

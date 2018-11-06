@@ -3,7 +3,6 @@ $(document).ready(function(){
     var interval;
     var currentTime = 0;
     var duration = 100;
-    var blub = 235;
     var pButton = document.getElementById('pButton'); // play button
     var playhead = document.getElementById('playhead'); // playhead
     var timeline = document.getElementById('timeline'); // timeline
@@ -17,12 +16,12 @@ $(document).ready(function(){
 
     // makes timeline clickable
     timeline.addEventListener("click", function(event) {
-        moveplayhead(event);
+	moveplayhead(event);
     }, false);
 
     // returns click as decimal (.77) of the total timelineWidth
     function clickPercent(event) {
-        return (event.clientX - getPosition(timeline)) / timelineWidth;
+	return (event.clientX - getPosition(timeline)) / timelineWidth;
     }
 
     // makes playhead draggable
@@ -34,37 +33,37 @@ $(document).ready(function(){
 
     // mouseDown EventListener
     function mouseDown() {
-        onplayhead = true;
-        window.addEventListener('mousemove', moveplayhead, true);
+	onplayhead = true;
+	window.addEventListener('mousemove', moveplayhead, true);
     }
 
     // mouseUp EventListener
     // getting input from all mouse clicks
     function mouseUp(event) {
-        if (onplayhead == true) {
-            moveplayhead(event);
-            window.removeEventListener('mousemove', moveplayhead, true);
-            // change current time
-        }
-        onplayhead = false;
+	if (onplayhead == true) {
+	    moveplayhead(event);
+	    window.removeEventListener('mousemove', moveplayhead, true);
+	    // change current time
+	}
+	onplayhead = false;
     }
     // mousemove EventListener
     // Moves playhead as user drags
     function moveplayhead(event) {
-        var newMargLeft = event.clientX - getPosition(timeline);
+	var newMargLeft = event.clientX - getPosition(timeline);
 
-        if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
-            playhead.style.marginLeft = newMargLeft + "px";
-            currentTime = (timelineWidth * (newMargLeft / duration));
-        }
-        if (newMargLeft < 0) {
-            playhead.style.marginLeft = "0px";
-            currentTime = 0;
-        }
-        if (newMargLeft > timelineWidth) {
-            playhead.style.marginLeft = timelineWidth + "px";
-            currentTime = duration;
-        }
+	if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+	    playhead.style.marginLeft = newMargLeft + "px";
+	    currentTime = (timelineWidth * (newMargLeft / duration));
+	}
+	if (newMargLeft < 0) {
+	    playhead.style.marginLeft = "0px";
+	    currentTime = 0;
+	}
+	if (newMargLeft > timelineWidth) {
+	    playhead.style.marginLeft = timelineWidth + "px";
+	    currentTime = duration;
+	}
     }
 
     // timeUpdate
@@ -73,35 +72,51 @@ $(document).ready(function(){
 	var playPercent = timelineWidth * (currentTime / duration);
 	playhead.style.marginLeft = playPercent + "px";
 	$.post( "/ticktock", {
-	    javascript_data: blub 
+	    javascript_data: currentTime,
+	    success: function() {
+		$.ajax({
+		    url: "/eval_network",
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+			(source.getFeatures()).forEach(function(f) {
+			    for (var i = 0; i < data[1].length; i++) {
+				if (data[1][i].id == f.O.id) {
+				    f.flow = data[1][i].flow;
+				}
+			    }
+			});
+		    }
+		});
+	    }
 	});
-
     }
 
     //Play and Pause
     function play() {
-        if (paused) {
-            paused = false;
-            // remove play, add pause
-            pButton.className = "";
-            pButton.className = "pause";
-            interval = setInterval(function() {
-                currentTime += 5;
-                timeUpdate();
-            }, 2000);
+	if (paused) {
+	    paused = false;
+	    // remove play, add pause
+	    pButton.className = "";
+	    pButton.className = "pause";
+	    interval = setInterval(function() {
+		currentTime += 5;
+		timeUpdate();
+	    }, 2000);
 
-        } else { // pause music
-            // remove pause, add play
-            paused = true;
-            pButton.className = "";
-            pButton.className = "play";
-            clearInterval(interval);
-            interval = 0;
-        }
+	} else { // pause music
+	    // remove pause, add play
+	    paused = true;
+	    pButton.className = "";
+	    pButton.className = "play";
+	    clearInterval(interval);
+	    interval = 0;
+	}
     }
 
     // Returns elements left position relative to top-left of viewport
     function getPosition(el) {
-        return el.getBoundingClientRect().left;
+	return el.getBoundingClientRect().left;
     }
 });

@@ -1,3 +1,4 @@
+var source;
 $(document).ready(function() {
     var longitude = 49.078191;
     var latitude = 8.855703;
@@ -28,7 +29,7 @@ $(document).ready(function() {
     var geoJSONFormat = new ol.format.GeoJSON({
         'defaultDataProjection': 'EPSG:4326' // view.getProjection()
     });
-    var source = new ol.source.Vector({
+    source = new ol.source.Vector({
         projection: view.getProjection(),
         format: new ol.format.GeoJSON()
     });
@@ -143,16 +144,11 @@ $(document).ready(function() {
     };
 
     var getLineType = function(feature) {
-        var capacity = feature.get('capacity');
-        var currentCapacity = feature.get('currentCapacity');
-
-        if (currentCapacity == undefined || currentCapacity == null) {
-            currentCapacity = 0;
-        }
-
-        if (currentCapacity > capacity) {
+        var capacity = 13000;
+        var flow = feature.flow;
+        if (flow > capacity) {
             return getLine([255, 0, 0, 1], 3);
-        } else if (currentCapacity > capacity / 2) {
+        } else if (flow > capacity * 2/3) {
             return getLine([255, 255, 0, 1], 2);
         } else {
             return getLine([0, 255, 0, 1], 2);
@@ -198,6 +194,10 @@ $(document).ready(function() {
             var features = geoJSONFormat.readFeatures(data, {
                 featureProjection: view.getProjection()
             });
+	    features.forEach(function(f) {
+		f.flow = 0;
+		f.test = "test";
+	    });
             source.addFeatures(features);
         },
         error: function(data, status, er) {
