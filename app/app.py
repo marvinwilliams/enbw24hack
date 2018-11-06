@@ -35,6 +35,14 @@ def points_of_interest():
     print("called")
     return send_file('static/test.geojson')
 
+@app.route('/repair_net')
+def repair_network():
+    for v in scenario["vertex"]:
+        if v["consumption_total"] > 0:
+            v["consumption_total"] /= 2 
+            v["consumption_remaining"] = v["consumption_total"]
+    return "success"
+
 @app.route('/eval_network')
 def call_eval_network():
     return algo.eval_network(scenario)
@@ -48,7 +56,6 @@ def get_post_javascript_data():
     set_consumption(7, -1)
     set_feed(1, 1)
     set_feed(4, -1)
-    print("teseuitaeduitaern")
     return "success"
 
 

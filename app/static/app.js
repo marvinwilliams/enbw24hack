@@ -352,10 +352,41 @@ $(document).ready(function() {
     };
 
     performAction = function(action) {
-        console.log("action performed" + action);
         switch (action) {
-            case 0:
-                console.log("yay");
+	    case 0:
+		$.ajax({
+		    url: "/repair_net",
+		    success: function() {
+			$.ajax({
+			    url: "/eval_network",
+			    dataType: 'json',
+			    contentType: 'application/json',
+			    mimeType: 'application/json',
+			    success: function(data) {
+				isMax = false;
+				source.getFeatures().forEach(function(f) {
+				    for (var i = 0; i < data[1].length; i++) {
+					if (data[1][i].id == f.O.id) {
+					    f.flow = data[1][i].flow;
+					    if (f.flow > 75000) {
+						isMax = true;
+					    }
+					    console.log(f.flow);
+					}
+				    }
+				});
+				if (!isMax) {
+				    overflow_status = 0
+				    updateStatus();
+				}
+				layer.getSource().changed();
+			    }
+			});
+		    },
+		    error: function(data, status, er) {
+			console.log(er);
+	}
+    });
                 var randomFeature = 5;
                 flash(getFeature(5));
                 break;
