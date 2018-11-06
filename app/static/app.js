@@ -145,7 +145,7 @@ $(document).ready(function() {
     };
 
     var getLineType = function(feature) {
-        var capacity = 13000;
+        var capacity = 75000;
         var flow = feature.flow;
         if (flow > capacity) {
             return getLine([255, 0, 0, 1], 3);
@@ -197,13 +197,29 @@ $(document).ready(function() {
             });
 	    features.forEach(function(f) {
 		f.flow = 0;
-		f.test = "test";
 	    });
             source.addFeatures(features);
-        },
-        error: function(data, status, er) {
-            console.log(er);
-        }
+	    $.ajax({
+		url: "/eval_network",
+		dataType: 'json',
+		contentType: 'application/json',
+		mimeType: 'application/json',
+		success: function(data) {
+		    (source.getFeatures()).forEach(function(f) {
+			for (var i = 0; i < data[1].length; i++) {
+			    if (data[1][i].id == f.O.id) {
+				f.flow = data[1][i].flow;
+				console.log(f.flow);
+			    }
+			}
+		    });
+		    layer.getSource().changed();
+		}
+	    });
+	},
+	error: function(data, status, er) {
+	    console.log(er);
+	}
     });
 
     var element = document.getElementById('popup');
