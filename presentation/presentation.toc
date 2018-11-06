@@ -1,0 +1,4 @@
+\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}
+\beamer@sectionintoc {1}{Konzept}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Anforderungen}{2}{0}{1}
