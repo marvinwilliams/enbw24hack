@@ -269,7 +269,7 @@ $(document).ready(function() {
         var geometryType = feature.getGeometry().getType();
         console.log(feature);
 
-        var metadata = $("<div>").append($("<h1 style = 'margin-top: 60px;'>").text("Metadata"));
+        var metadata = $("<div>"); //$("<div>").append($("<h1 style = 'margin-top: 60px;'>").text("Metadata"));
 
         if (geometryType == 'Point') {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
@@ -300,6 +300,14 @@ $(document).ready(function() {
                 .append(metadata)
                 .append(img)
                 .append(info).append(id).append(feed).append(consumption);
+
+            if (feature.get("nodeType") == "Endnutzer") {
+                var graph = $("#chartContainer2").attr("style", "display: inline-block");
+                content = $("<div>")
+                    .append(metadata)
+                    .append(img).append(graph);
+            }
+
             $(".data").html(content);
 
         } else if (geometryType == 'LineString') {
@@ -319,6 +327,13 @@ $(document).ready(function() {
         var geometryType = feature.getGeometry().getType();
         if (geometryType == 'Point') {
             feature.setStyle(getImageIcon(feature.get("nodeType"), false));
+
+            if (feature.get("nodeType") == "Endnutzer") {
+                var graph = $("#chartContainer2").attr("style", "display: none");
+                content = $(":root")
+                    .append(graph);
+            }
+
         } else if (geometryType == 'LineString') {
             // feature.setStyle(getLineType(feature));
         }
@@ -349,6 +364,7 @@ $(document).ready(function() {
                 console.log("yay");
                 var randomFeature = 5;
                 flash(getFeature(5));
+            flash(getFeature(2));
                 break;
         }
     };
