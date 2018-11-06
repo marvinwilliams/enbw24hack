@@ -6,7 +6,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 48000,
             "reserve_capacity": 0,
-            "specificCostsResCapa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -16,7 +16,7 @@
             "feed_remaining": 156000,
             "consumption_remaining": 0,
             "reserve_capacity": 100000,
-            "specifiic_costs_res_capa": 0.2,
+            "specific_costs_res_capa": 0.2,
             "leitwert_remaining": 0
         },
         {
@@ -26,7 +26,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 0,
             "reserve_capacity": 50000,
-            "specifiic_costs_res_capa": 0.15,
+            "specific_costs_res_capa": 0.15,
             "leitwert_remaining": 0
         },
         {
@@ -36,7 +36,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 0,
             "reserve_capacity": 50000,
-            "specifiic_costs_res_capa": 0.15,
+            "specific_costs_res_capa": 0.15,
             "leitwert_remaining": 0
         },
         {
@@ -46,7 +46,7 @@
             "feed_remaining": 156000,
             "consumption_remaining": 0,
             "reserve_capacity": 100000,
-            "specifiic_costs_res_capa": 0.2,
+            "specific_costs_res_capa": 0.2,
             "leitwert_remaining": 0
         },
         {
@@ -56,7 +56,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 0,
             "reserve_capacity": 50000,
-            "specifiic_costs_res_capa": 0.15,
+            "specific_costs_res_capa": 0.15,
             "leitwert_remaining": 0
         },
         {
@@ -66,7 +66,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 0,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -76,7 +76,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 40000,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -86,7 +86,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 64000,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -96,7 +96,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 32000,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -106,7 +106,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 72000,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         },
         {
@@ -116,7 +116,7 @@
             "feed_remaining": 0,
             "consumption_remaining": 56000,
             "reserve_capacity": 0,
-            "specifiic_costs_res_capa": 99999999,
+            "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
         }
     ]
