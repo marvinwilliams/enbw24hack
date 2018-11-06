@@ -6,7 +6,7 @@
 	<script src="{{ url_for('static', filename='ol/resources/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ url_for('static', filename='ol/resources/bootstrap.min.js') }}" type="text/javascript"></script>
 	<script src="{{ url_for('static', filename='ol/debug/ol.js') }}" type="text/javascript"></script>
-
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<script src="{{ url_for('static', filename='ol/debug/ol-ext.min.js') }}" type="text/javascript"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='ol/debug/ol-ext.min.css') }}" type="text/css">
 
@@ -29,6 +29,7 @@
 
 	<script src="{{ url_for('static', filename='app.js') }}" type="text/javascript"></script>
 	<script src="{{ url_for('static', filename='timeline.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='graph.js') }}" type="text/javascript"></script>
 </head>
 
 
@@ -48,8 +49,21 @@
         <img class="imbtn" src='/static/icons/actionC.png' alt="action c" onclick="performAction(2)">
         <img class="imbtn" src='/static/icons/actionD.png' alt="action d" onclick="performAction(3)">
     </p>
-          
-		<p style="border-bottom:1px solid #999;">
+
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked>Greedy Agent
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off">Agent B
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off">Agent C
+        </label>
+    </div>
+
+    <div id="chartContainer" ></div>
+		<p style="margin-up: 5px; border-bottom:1px solid #999;">
 
     </p>
 		<div class="data"></div>
@@ -66,6 +80,7 @@
     <div id="status">
 
     </div>
+
 
 </body>
 </html>

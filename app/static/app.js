@@ -120,6 +120,11 @@ $(document).ready(function() {
                     iconSrc = '/static/data/Hochspannungsstation.png';
                     break;
                 }
+        case 'Endnutzer':
+            {
+                    iconSrc = '/static/data/EAuto.png';
+                    break;
+                }
 
         }
         return iconSrc;
@@ -149,7 +154,7 @@ $(document).ready(function() {
         var flow = feature.flow;
         if (flow > capacity) {
             return getLine([255, 0, 0, 1], 3);
-        } else if (flow > capacity * 2/3) {
+        } else if (flow > capacity * 2 / 3) {
             return getLine([255, 255, 0, 1], 2);
         } else {
             return getLine([0, 255, 0, 1], 2);
@@ -195,10 +200,10 @@ $(document).ready(function() {
             var features = geoJSONFormat.readFeatures(data, {
                 featureProjection: view.getProjection()
             });
-	    features.forEach(function(f) {
-		f.flow = 0;
-		f.test = "test";
-	    });
+            features.forEach(function(f) {
+                f.flow = 0;
+                f.test = "test";
+            });
             source.addFeatures(features);
         },
         error: function(data, status, er) {
@@ -243,6 +248,11 @@ $(document).ready(function() {
         if (geometryType == 'Point') {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
+            if (feature.get("nodeType") == "Endnutzer") {
+                console.log("Endnutzer");
+                var img2 = $("<img>").attr("src", "/static/data/head.png").width(100);
+                metadata = $("<div>").append(img2);
+            }
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
             var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
@@ -275,9 +285,9 @@ $(document).ready(function() {
         }
         $(".data").html("");
     });
-   var easeIn = function(t) {
+    var easeIn = function(t) {
         return Math.pow(t, 3);
-}
+    }
     var easeOut = function(t) {
         return 1 - easeIn(1 - t);
     };
@@ -285,7 +295,7 @@ $(document).ready(function() {
 
     getFeature = function(id) {
         var feature = null;
-                    source.getFeatures().forEach(function(f) {
+        source.getFeatures().forEach(function(f) {
             if (f.get("id") == id) {
                 feature = f;
             }
@@ -296,11 +306,11 @@ $(document).ready(function() {
     performAction = function(action) {
         console.log("action performed" + action);
         switch (action) {
-        case 0:
-            console.log("yay");
-            var randomFeature = 5;
-            flash(getFeature(5));
-            break;
+            case 0:
+                console.log("yay");
+                var randomFeature = 5;
+                flash(getFeature(5));
+                break;
         }
     };
 

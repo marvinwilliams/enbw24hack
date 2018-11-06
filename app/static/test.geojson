@@ -446,6 +446,53 @@
             [ 8.665752917, 49.04914786 ], [ 8.792245332, 49.01104132]
         ]
       }
-    }
+    },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "21",
+              "nodeType": "Endnutzer",
+              "name": "Hans"
+          },
+
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  8.719367980957031,
+                  48.99373491838787
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "23",
+              "nodeType": "Endnutzer",
+              "name": "Hans"
+          },
+
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  8.842277526855469,
+                  48.95429736286702
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "24",
+              "nodeType": "Endnutzer",
+              "name": "Hans"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  8.919868469238281,
+                  48.95812980788307
+              ]
+          }
+      }
   ]
 }
