@@ -1,4 +1,5 @@
 var source;
+var layer;
 var status = 0;
 
 $(document).ready(function() {
@@ -174,7 +175,7 @@ $(document).ready(function() {
         }
     };
 
-    var layer = new ol.layer.Vector({
+    layer = new ol.layer.Vector({
         title: 'Points of Interest',
         source: source,
         style: styleFunction

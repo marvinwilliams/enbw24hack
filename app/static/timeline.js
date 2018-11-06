@@ -113,15 +113,10 @@ $(document).ready(function() {
         } else {
             timeString += seconds;
         }
-
-        var time = $("<div>").append($("<h3>").text(timeString));
-	      var playPercent = timelineWidth * (currentTime / duration);
-	      playhead.style.marginLeft = playPercent + "px";
-	      $.post( "/ticktock", {
-	          javascript_data: blub 
-	      });
-
-        $("#clock").html(time);
+	var time = $("<div>").append($("<h3>").text(timeString));
+	var playPercent = timelineWidth * (currentTime / duration);
+	playhead.style.marginLeft = playPercent + "px";
+	$("#clock").html(time);
 	playhead.style.marginLeft = playPercent + "px";
 	$.post( "/ticktock", {
 	    javascript_data: currentTime,
@@ -139,6 +134,7 @@ $(document).ready(function() {
 				}
 			    }
 			});
+			layer.getSource().changed();
 		    }
 		});
 	    }
