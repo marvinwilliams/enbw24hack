@@ -1,11 +1,37 @@
-$(document).ready(function(){
+$(document).ready(function() {
     var paused = true;
     var interval;
     var currentTime = 0;
-    var duration = 100;
+    var duration = 2 * 60 * 24;
     var pButton = document.getElementById('pButton'); // play button
     var playhead = document.getElementById('playhead'); // playhead
     var timeline = document.getElementById('timeline'); // timeline
+
+
+
+    var hours = 00;
+    var minutes = 00;
+    var seconds = 00;
+    $("#clock").html(
+        $("<div>").append($("<h3>").text("Time: 00:00:00"))
+    );
+
+    var updateStatus = function() {
+        var text = "All ok";
+        var color = "green";
+        switch (status) {
+        case 1:
+            text = "Error";
+            color = "red";
+            break;
+        case 0:
+            text = "All ok!";
+            color = "green";
+            break;
+        }
+        $("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
+    };
+    updateStatus();
 
     // timeline width adjusted for playhead
     var timelineWidth = 200;
@@ -71,7 +97,27 @@ $(document).ready(function(){
     function timeUpdate() {
         var playPercent = timelineWidth * (currentTime / duration);
         playhead.style.marginLeft = playPercent + "px";
-           }
+        var timeString = "Time: ";
+        if (hours < 10) {
+            timeString += "0" + hours + ":";
+        } else {
+            timeString += hours + ":";
+        }
+        if (minutes < 10) {
+            timeString += "0" + minutes + ":";
+        } else {
+            timeString += minutes + ":";
+        }
+        if (seconds < 10) {
+            timeString += "0" + seconds;
+        } else {
+            timeString += seconds;
+        }
+
+        var time = $("<div>").append($("<h3>").text(timeString));
+
+        $("#clock").html(time);
+    }
 
     //Play and Pause
     function play() {
@@ -82,6 +128,19 @@ $(document).ready(function(){
             pButton.className = "pause";
             interval = setInterval(function() {
                 currentTime += 5;
+                seconds += 30;
+                if (seconds == 60) {
+                    seconds = 00;
+                    minutes += 1;
+                }
+                if (minutes == 60) {
+                    minutes = 00;
+                    hours += 1;
+                }
+                if (hours == 24) {
+                    hours = 0;
+                    currentTime = 0;
+                }
                 timeUpdate();
             }, 2000);
 

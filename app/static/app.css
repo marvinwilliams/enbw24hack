@@ -60,6 +60,26 @@
 	  margin: 10px auto auto auto;
     /* border: solid; */
 }
+#clock{
+    position: absolute;
+    bottom: 0px;
+    /* left: 0px; */
+    right: 0px;
+	  width: 200px;
+	  height: 60px;
+	  margin: auto auto auto auto;
+    /* border: solid; */
+}
+#status{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    /* right: 0px; */
+	  width: 200px;
+	  height: 60px;
+	  margin: auto auto auto auto;
+    /* border: solid; */
+}
 
 #pButton{
     height:60px; 

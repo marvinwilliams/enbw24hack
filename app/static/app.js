@@ -1,11 +1,9 @@
+
+var status = 0;
+
 $(document).ready(function() {
     var longitude = 49.078191;
     var latitude = 8.855703;
-
-    // var timeLineOverlay = new ol.Overlay({
-    //     element: document.getElementById('audioplayer'),
-    //     positioning: 'bottom-center'
-    // });
 
     var map = new ol.Map({
         target: 'map',
@@ -79,6 +77,8 @@ $(document).ready(function() {
         })
 
     };
+
+    
 
 
     var getLine = function(color, width) {
