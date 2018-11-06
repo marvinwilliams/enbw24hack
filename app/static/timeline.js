@@ -13,7 +13,7 @@ $(document).ready(function() {
     var minutes = 00;
     var seconds = 00;
     $("#clock").html(
-        $("<div>").append($("<h3>").text("Time: 00:00:00"))
+        $("<div>").append($("<h3>").text("Time: 00:00"))
     );
 
     updateStatus = function() {
@@ -96,11 +96,6 @@ $(document).ready(function() {
         var playPercent = timelineWidth * (currentTime / duration);
         playhead.style.marginLeft = playPercent + "px";
         var timeString = "Time: ";
-        if (hours < 10) {
-            timeString += "0" + hours + ":";
-        } else {
-            timeString += hours + ":";
-        }
         if (minutes < 10) {
             timeString += "0" + minutes + ":";
         } else {
