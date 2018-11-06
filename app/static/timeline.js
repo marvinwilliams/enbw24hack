@@ -20,14 +20,14 @@ $(document).ready(function() {
         var text = "All ok";
         var color = "green";
         switch (status) {
-        case 1:
-            text = "Error";
-            color = "red";
-            break;
-        case 0:
-            text = "All ok!";
-            color = "green";
-            break;
+            case 1:
+                text = "Error";
+                color = "red";
+                break;
+            case 0:
+                text = "All ok!";
+                color = "green";
+                break;
         }
         $("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
     };
@@ -42,12 +42,12 @@ $(document).ready(function() {
 
     // makes timeline clickable
     timeline.addEventListener("click", function(event) {
-	moveplayhead(event);
+        moveplayhead(event);
     }, false);
 
     // returns click as decimal (.77) of the total timelineWidth
     function clickPercent(event) {
-	return (event.clientX - getPosition(timeline)) / timelineWidth;
+        return (event.clientX - getPosition(timeline)) / timelineWidth;
     }
 
     // makes playhead draggable
@@ -59,37 +59,37 @@ $(document).ready(function() {
 
     // mouseDown EventListener
     function mouseDown() {
-	onplayhead = true;
-	window.addEventListener('mousemove', moveplayhead, true);
+        onplayhead = true;
+        window.addEventListener('mousemove', moveplayhead, true);
     }
 
     // mouseUp EventListener
     // getting input from all mouse clicks
     function mouseUp(event) {
-	if (onplayhead == true) {
-	    moveplayhead(event);
-	    window.removeEventListener('mousemove', moveplayhead, true);
-	    // change current time
-	}
-	onplayhead = false;
+        if (onplayhead == true) {
+            moveplayhead(event);
+            window.removeEventListener('mousemove', moveplayhead, true);
+            // change current time
+        }
+        onplayhead = false;
     }
     // mousemove EventListener
     // Moves playhead as user drags
     function moveplayhead(event) {
-	var newMargLeft = event.clientX - getPosition(timeline);
+        var newMargLeft = event.clientX - getPosition(timeline);
 
-	if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
-	    playhead.style.marginLeft = newMargLeft + "px";
-	    currentTime = (timelineWidth * (newMargLeft / duration));
-	}
-	if (newMargLeft < 0) {
-	    playhead.style.marginLeft = "0px";
-	    currentTime = 0;
-	}
-	if (newMargLeft > timelineWidth) {
-	    playhead.style.marginLeft = timelineWidth + "px";
-	    currentTime = duration;
-	}
+        if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+            playhead.style.marginLeft = newMargLeft + "px";
+            currentTime = (timelineWidth * (newMargLeft / duration));
+        }
+        if (newMargLeft < 0) {
+            playhead.style.marginLeft = "0px";
+            currentTime = 0;
+        }
+        if (newMargLeft > timelineWidth) {
+            playhead.style.marginLeft = timelineWidth + "px";
+            currentTime = duration;
+        }
     }
 
     // timeUpdate
@@ -113,6 +113,7 @@ $(document).ready(function() {
         } else {
             timeString += seconds;
         }
+<<<<<<< HEAD
 	var time = $("<div>").append($("<h3>").text(timeString));
 	var playPercent = timelineWidth * (currentTime / duration);
 	playhead.style.marginLeft = playPercent + "px";
@@ -166,18 +167,18 @@ $(document).ready(function() {
                 timeUpdate();
             }, 2000);
 
-	} else { // pause music
-	    // remove pause, add play
-	    paused = true;
-	    pButton.className = "";
-	    pButton.className = "play";
-	    clearInterval(interval);
-	    interval = 0;
-	}
+        } else { // pause music
+            // remove pause, add play
+            paused = true;
+            pButton.className = "";
+            pButton.className = "play";
+            clearInterval(interval);
+            interval = 0;
+        }
     }
 
     // Returns elements left position relative to top-left of viewport
     function getPosition(el) {
-	return el.getBoundingClientRect().left;
+        return el.getBoundingClientRect().left;
     }
 });

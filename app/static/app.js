@@ -241,10 +241,12 @@ $(document).ready(function() {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
-            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
+            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
+            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
+            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
             var content = $("<div>")
                 .append(img)
-                .append(info).append(id);
+                .append(info).append(id).append(feed).append(consumption);
             $(".data").html(content);
 
         } else if (geometryType == 'LineString') {
