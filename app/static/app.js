@@ -121,6 +121,11 @@ $(document).ready(function() {
                     iconSrc = '/static/data/Hochspannungsstation.png';
                     break;
                 }
+        case 'Endnutzer':
+            {
+                    iconSrc = '/static/data/EAuto.png';
+                    break;
+                }
 
         }
         return iconSrc;
@@ -147,13 +152,22 @@ $(document).ready(function() {
 
     var getLineType = function(feature) {
         var capacity = 75000;
+        if (feature.get('start') == "9" && feature.get('end') == "21") {
+            return getLine([90, 90, 90, 1], 2);
+        }
+        if (feature.get('start') == "21" && feature.get('end') == "23") {
+            return getLine([90, 90, 90, 1], 2);
+        }
+        if (feature.get('start') == "23" && feature.get('end') == "24") {
+            return getLine([90, 90, 90, 1], 2);
+        }
         var flow = feature.flow;
         if (flow > capacity) {
-            return getLine([255, 0, 0, 1], 3);
+            return getLine([255, 0, 0, 1], 4);
         } else if (flow > capacity * 2/3) {
-            return getLine([255, 255, 0, 1], 2);
+            return getLine([255, 255, 0, 1], 3);
         } else {
-            return getLine([0, 255, 0, 1], 2);
+            return getLine([0, 255, 0, 1], 3);
         }
 
     };
@@ -196,9 +210,10 @@ $(document).ready(function() {
             var features = geoJSONFormat.readFeatures(data, {
                 featureProjection: view.getProjection()
             });
-	    features.forEach(function(f) {
-		f.flow = 0;
-	    });
+            features.forEach(function(f) {
+                f.flow = 0;
+                f.test = "test";
+            });
             source.addFeatures(features);
 	    $.ajax({
 		url: "/eval_network",
@@ -268,10 +283,28 @@ $(document).ready(function() {
         if (geometryType == 'Point') {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
+            if (feature.get("nodeType") == "Endnutzer") {
+                console.log("Endnutzer");
+                var img2 = $("<img>").attr("src", "/static/data/head.png").width(100);
+                metadata = $("<div>").append(img2);
+            }
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
-            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
-            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+            // var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
+            // var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+
+            if (id == 0 || id == 4) {
+                var ein = Math.random() * (58000 - 20000) + 20000;
+                var ver = Math.random() * (20000 - 0);
+            }else{
+                var ein = Math.random() * (20000 - 0);
+                var ver = Math.random() * (58000 - 20000) + 20000;
+            }
+            ein = parseInt(ein);
+            ver = parseInt(ver);
+
+            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + ein + " [kW]"));
+            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + ver + " [kW]"));
             var content = $("<div>")
                 .append(metadata)
                 .append(img)
@@ -300,9 +333,9 @@ $(document).ready(function() {
         }
         $(".data").html("");
     });
-   var easeIn = function(t) {
+    var easeIn = function(t) {
         return Math.pow(t, 3);
-}
+    }
     var easeOut = function(t) {
         return 1 - easeIn(1 - t);
     };
@@ -310,7 +343,7 @@ $(document).ready(function() {
 
     getFeature = function(id) {
         var feature = null;
-                    source.getFeatures().forEach(function(f) {
+        source.getFeatures().forEach(function(f) {
             if (f.get("id") == id) {
                 feature = f;
             }
@@ -321,11 +354,11 @@ $(document).ready(function() {
     performAction = function(action) {
         console.log("action performed" + action);
         switch (action) {
-        case 0:
-            console.log("yay");
-            var randomFeature = 5;
-            flash(getFeature(5));
-            break;
+            case 0:
+                console.log("yay");
+                var randomFeature = 5;
+                flash(getFeature(5));
+                break;
         }
     };
 
