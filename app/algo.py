@@ -77,7 +77,7 @@ def eval_network(data):
             for f in v_Feed:
                 v_flow[f["id"]] += feed_cons[f["id"]][c["id"]]["flow"]
         v = 0
-        maxOverload = 0.0
+        maxOverload = 0.01
         id_maxOverload = 0
         listItem_maxOverload = 9999999
         for f in v_Feed:

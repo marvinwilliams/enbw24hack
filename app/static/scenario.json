@@ -1,1 +1,123 @@
-{"vertex": [{"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 0, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 70000, "feed_total": 70000, "id": 1, "leitwert_remaining": 0, "reserve_capacity": 100000, "specific_costs_res_capa": 0.2}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 2, "leitwert_remaining": 0, "reserve_capacity": 50000, "specific_costs_res_capa": 0.15}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 3, "leitwert_remaining": 0, "reserve_capacity": 50000, "specific_costs_res_capa": 0.15}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 4, "leitwert_remaining": 0, "reserve_capacity": 100000, "specific_costs_res_capa": 0.2}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 5, "leitwert_remaining": 0, "reserve_capacity": 50000, "specific_costs_res_capa": 0.15}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 6, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 0, "consumption_total": 0, "feed_remaining": 0, "feed_total": 0, "id": 7, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 70000, "consumption_total": 70000, "feed_remaining": 0, "feed_total": 0, "id": 8, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 32000, "consumption_total": 32000, "feed_remaining": 0, "feed_total": 0, "id": 9, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 70000, "consumption_total": 70000, "feed_remaining": 0, "feed_total": 0, "id": 10, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}, {"consumption_remaining": 56000, "consumption_total": 56000, "feed_remaining": 0, "feed_total": 0, "id": 11, "leitwert_remaining": 0, "reserve_capacity": 0, "specific_costs_res_capa": 99999999}]}
+{
+    "vertex": [{
+            "id": 0,
+            "feed_total": 0,
+            "consumption_total": 48000,
+            "feed_remaining": 0,
+            "consumption_remaining": 48000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 1,
+            "feed_total": 56000,
+            "consumption_total": 0,
+            "feed_remaining": 56000,
+            "consumption_remaining": 0,
+            "reserve_capacity": 100000,
+            "specific_costs_res_capa": 0.2,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 2,
+            "feed_total": 0,
+            "consumption_total": 0,
+            "feed_remaining": 0,
+            "consumption_remaining": 0,
+            "reserve_capacity": 50000,
+            "specific_costs_res_capa": 0.15,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 3,
+            "feed_total": 0,
+            "consumption_total": 0,
+            "feed_remaining": 0,
+            "consumption_remaining": 0,
+            "reserve_capacity": 50000,
+            "specific_costs_res_capa": 0.15,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 4,
+            "feed_total": 156000,
+            "consumption_total": 0,
+            "feed_remaining": 156000,
+            "consumption_remaining": 0,
+            "reserve_capacity": 100000,
+            "specific_costs_res_capa": 0.2,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 5,
+            "feed_total": 0,
+            "consumption_total": 0,
+            "feed_remaining": 0,
+            "consumption_remaining": 0,
+            "reserve_capacity": 50000,
+            "specific_costs_res_capa": 0.15,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 6,
+            "feed_total": 0,
+            "consumption_total": 0,
+            "feed_remaining": 0,
+            "consumption_remaining": 0,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 7,
+            "feed_total": 0,
+            "consumption_total": 40000,
+            "feed_remaining": 0,
+            "consumption_remaining": 40000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 8,
+            "feed_total": 0,
+            "consumption_total": 64000,
+            "feed_remaining": 0,
+            "consumption_remaining": 64000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 9,
+            "feed_total": 0,
+            "consumption_total": 32000,
+            "feed_remaining": 0,
+            "consumption_remaining": 32000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 10,
+            "feed_total": 0,
+            "consumption_total": 72000,
+            "feed_remaining": 0,
+            "consumption_remaining": 72000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        },
+        {
+            "id": 11,
+            "feed_total": 0,
+            "consumption_total": 56000,
+            "feed_remaining": 0,
+            "consumption_remaining": 56000,
+            "reserve_capacity": 0,
+            "specific_costs_res_capa": 99999999,
+            "leitwert_remaining": 0
+        }
+    ]
+}
