@@ -19,23 +19,27 @@ $(document).ready(function() {
     updateStatus = function() {
 	var text = "Ok";
 	var color = "green";
+	paused = true;
 	if (overflow_status == 1) {
 	    paused = false;
 	    text = "Error";
 	    color = "red";
-	    play();
-	    $('#btn2').addClass('pActive');
+	    $('#btn1').addClass('pActive');
 	    var metadata = $("<div>").append($("<h1 style = 'margin-top: 60px;'>").text("Batterien verwenden"));
 
 	    var info = $("<div>").append($("<h3>").text("Die Batterien des Solarparks Gondelsheim werden zugestaltet, um die Leitung Bruchsal-Gondelsheim zu entlasten. Gleichzeitig wird die Windkraftanlage Eppingen gedrosselt."));
 	    var cost = $("<div>").append($("<h3>").text("Kosten: 150000€"));
-	    var avail = $("<div>").append($("<h4>").text("Availability: 4:00h"));
+	    var avail = $("<div>").append($("<h4>").text("Verfügbarkeit: 4:00h"));
 	    var content = $("<div>")
 		.append(metadata)
 		.append(info).append(cost).append(avail);
 	    $(".data").html(content);
 
 	}
+	else {
+	    $(".data").html("");
+	}
+	play();
 	$("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
 
     };
