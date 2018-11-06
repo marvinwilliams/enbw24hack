@@ -364,5 +364,7 @@ $(document).ready(function() {
             // tell OpenLayers to continue postcompose animation
             map.render();
         }
+	layer.getSource().changed();
+
     }
 });
