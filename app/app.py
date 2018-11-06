@@ -41,6 +41,9 @@ def repair_network():
         if v["consumption_total"] > 0:
             v["consumption_total"] /= 2 
             v["consumption_remaining"] = v["consumption_total"]
+        if v["feed_total"] > 0:
+            v["feed_total"] /= 2 
+            v["feed_remaining"] = v["feed_total"]
     return "success"
 
 @app.route('/eval_network')
