@@ -16,23 +16,19 @@ $(document).ready(function() {
         $("<div>").append($("<h3>").text("Time: 00:00:00"))
     );
 
-    var updateStatus = function() {
-        var text = "All ok";
+    updateStatus = function() {
+        var text = "Ok";
         var color = "green";
-        switch (status) {
-            case 1:
-                text = "Error";
-                color = "red";
-                break;
-            case 0:
-                text = "All ok!";
-                color = "green";
-                break;
-        }
-        $("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
+	if (overflow_status == 1) {
+	    paused = false;
+	    text = "Error";
+	    color = "red";
+	    play();
+	}
+	$("#overflow_status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
 
     };
-    // status = 1;
+    // overflow_status = 1;
     updateStatus();
 
     // timeline width adjusted for playhead
@@ -129,13 +125,21 @@ $(document).ready(function() {
 		    contentType: 'application/json',
 		    mimeType: 'application/json',
 		    success: function(data) {
-			(source.getFeatures()).forEach(function(f) {
-			    for (var i = 0; i < data[1].length; i++) {
-				if (data[1][i].id == f.O.id) {
-				    f.flow = data[1][i].flow;
+		    isMax = false;
+		    source.getFeatures().forEach(function(f) {
+			for (var i = 0; i < data[1].length; i++) {
+			    if (data[1][i].id == f.O.id) {
+				f.flow = data[1][i].flow;
+				if (f.flow > 75000) {
+				    isMax = true;
 				}
 			    }
-			});
+			}
+		    });
+		    if (isMax) {
+			overflow_status = 1;
+			updateStatus();
+		    }
 			layer.getSource().changed();
 		    }
 		});
@@ -168,8 +172,7 @@ $(document).ready(function() {
                 timeUpdate();
             }, 2000);
 
-        } else { // pause music
-            // remove pause, add play
+        } else {
             paused = true;
             pButton.className = "";
             pButton.className = "play";
