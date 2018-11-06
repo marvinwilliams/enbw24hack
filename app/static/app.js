@@ -149,11 +149,11 @@ $(document).ready(function() {
         var capacity = 75000;
         var flow = feature.flow;
         if (flow > capacity) {
-            return getLine([255, 0, 0, 1], 3);
+            return getLine([255, 0, 0, 1], 4);
         } else if (flow > capacity * 2/3) {
-            return getLine([255, 255, 0, 1], 2);
+            return getLine([255, 255, 0, 1], 3);
         } else {
-            return getLine([0, 255, 0, 1], 2);
+            return getLine([0, 255, 0, 1], 3);
         }
 
     };
