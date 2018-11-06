@@ -113,7 +113,6 @@ $(document).ready(function() {
         } else {
             timeString += seconds;
         }
-<<<<<<< HEAD
 	var time = $("<div>").append($("<h3>").text(timeString));
 	var playPercent = timelineWidth * (currentTime / duration);
 	playhead.style.marginLeft = playPercent + "px";

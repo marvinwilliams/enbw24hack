@@ -34,15 +34,13 @@ def init_network():
         pathGroupList.append(pg)
 
 
-def eval_network():
+def eval_network(data):
     global n_vertices
     global n_edges
     global feed_cons
     global edge
     global pathGroupList
 
-    with open("static/scenario.json", "r") as data_file:
-        data = json.load(data_file)
     v_Feed = []
     v_Consumption = []
 
