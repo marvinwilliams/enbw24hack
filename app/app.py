@@ -13,16 +13,16 @@ webport = app.config['PORT']
 with open("static/scenario.json", "r") as scenario_file:
     scenario = json.load(scenario_file)
 
-def set_consumption(id, time):
+def set_consumption(id, sign):
     for v in scenario["vertex"]:
         if v["id"] == id:
-            v["consumption_total"] = max(min(v["consumption_total"] + time * 200, 70000), 0)
+            v["consumption_total"] = max(min(v["consumption_total"] + sign * 5000, 100000), 0)
             v["consumption_remaining"] = v["consumption_total"]
 
-def set_feed(id, time):
+def set_feed(id, sign):
     for v in scenario["vertex"]:
         if v["id"] == id:
-            v["feed_total"] = max(min(v["feed_total"] + time * 200, 70000), 0)
+            v["feed_total"] = max(min(v["feed_total"] + sign * 5000, 100000), 0)
             v["feed_remaining"] = v["feed_total"]
 
 @app.route('/')
@@ -42,12 +42,13 @@ def call_eval_network():
 @app.route('/ticktock', methods = ['POST'])
 def get_post_javascript_data():
     jsdata = int(request.form['javascript_data'])
-    set_consumption(0, -1 * jsdata)
-    set_consumption(8, 2 * jsdata)
-    set_consumption(10, 1 * jsdata)
-    set_consumption(7, -2 * jsdata)
-    set_feed(1, 2 * jsdata)
-    set_feed(4, -2 * jsdata)
+    set_consumption(0, -1)
+    set_consumption(8, 1)
+    set_consumption(10, 1)
+    set_consumption(7, -1)
+    set_feed(1, 1)
+    set_feed(4, -1)
+    print("teseuitaeduitaern")
     return "success"
 
 

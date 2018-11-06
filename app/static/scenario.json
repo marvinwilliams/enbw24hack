@@ -11,9 +11,9 @@
         },
         {
             "id": 1,
-            "feed_total": 56000,
+            "feed_total": 156000,
             "consumption_total": 0,
-            "feed_remaining": 56000,
+            "feed_remaining": 156000,
             "consumption_remaining": 0,
             "reserve_capacity": 100000,
             "specific_costs_res_capa": 0.2,
@@ -82,9 +82,9 @@
         {
             "id": 8,
             "feed_total": 0,
-            "consumption_total": 64000,
+            "consumption_total": 32000,
             "feed_remaining": 0,
-            "consumption_remaining": 64000,
+            "consumption_remaining": 32000,
             "reserve_capacity": 0,
             "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
@@ -102,9 +102,9 @@
         {
             "id": 10,
             "feed_total": 0,
-            "consumption_total": 72000,
+            "consumption_total": 40000,
             "feed_remaining": 0,
-            "consumption_remaining": 72000,
+            "consumption_remaining": 40000,
             "reserve_capacity": 0,
             "specific_costs_res_capa": 99999999,
             "leitwert_remaining": 0
