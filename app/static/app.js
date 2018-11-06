@@ -1,3 +1,5 @@
+var source;
+var layer;
 var status = 0;
 var performAction;
 
@@ -26,7 +28,7 @@ $(document).ready(function() {
     var geoJSONFormat = new ol.format.GeoJSON({
         'defaultDataProjection': 'EPSG:4326' // view.getProjection()
     });
-    var source = new ol.source.Vector({
+    source = new ol.source.Vector({
         projection: view.getProjection(),
         format: new ol.format.GeoJSON()
     });
@@ -143,16 +145,11 @@ $(document).ready(function() {
     };
 
     var getLineType = function(feature) {
-        var capacity = feature.get('capacity');
-        var currentCapacity = feature.get('currentCapacity');
-
-        if (currentCapacity == undefined || currentCapacity == null) {
-            currentCapacity = 0;
-        }
-
-        if (currentCapacity > capacity) {
+        var capacity = 13000;
+        var flow = feature.flow;
+        if (flow > capacity) {
             return getLine([255, 0, 0, 1], 3);
-        } else if (currentCapacity > capacity / 2) {
+        } else if (flow > capacity * 2/3) {
             return getLine([255, 255, 0, 1], 2);
         } else {
             return getLine([0, 255, 0, 1], 2);
@@ -179,7 +176,7 @@ $(document).ready(function() {
         }
     };
 
-    var layer = new ol.layer.Vector({
+    layer = new ol.layer.Vector({
         title: 'Points of Interest',
         source: source,
         style: styleFunction
@@ -198,6 +195,10 @@ $(document).ready(function() {
             var features = geoJSONFormat.readFeatures(data, {
                 featureProjection: view.getProjection()
             });
+	    features.forEach(function(f) {
+		f.flow = 0;
+		f.test = "test";
+	    });
             source.addFeatures(features);
         },
         error: function(data, status, er) {
@@ -243,11 +244,13 @@ $(document).ready(function() {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
-            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
+            var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
+            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
+            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
             var content = $("<div>")
                 .append(metadata)
                 .append(img)
-                .append(info).append(id);
+                .append(info).append(id).append(feed).append(consumption);
             $(".data").html(content);
 
         } else if (geometryType == 'LineString') {
@@ -256,7 +259,7 @@ $(document).ready(function() {
             var info = $("<div>").append($("<h3>").text("Typ: " + "Kante"));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
             var capacity = $("<div>").append($("<h3>").text("Name: " + feature.get("capacity")));
-            var content = $("<div>")
+            var content = $("<div>").
             append(metadata).append(info).append(id).append(capacity);
             $(".data").html(content);
 

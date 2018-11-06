@@ -20,15 +20,14 @@ $(document).ready(function() {
         var text = "All ok";
         var color = "green";
         switch (status) {
-        case '1':
-            console.log("Error");
-            text = "Error";
-            color = "red";
-            break;
-        case '0':
-            text = "All ok!";
-            color = "green";
-            break;
+            case 1:
+                text = "Error";
+                color = "red";
+                break;
+            case 0:
+                text = "All ok!";
+                color = "green";
+                break;
         }
         $("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
 
@@ -116,15 +115,32 @@ $(document).ready(function() {
         } else {
             timeString += seconds;
         }
-
-        var time = $("<div>").append($("<h3>").text(timeString));
-	      var playPercent = timelineWidth * (currentTime / duration);
-	      playhead.style.marginLeft = playPercent + "px";
-	      $.post( "/ticktock", {
-	          javascript_data: blub 
-	      });
-
-        $("#clock").html(time);
+	var time = $("<div>").append($("<h3>").text(timeString));
+	var playPercent = timelineWidth * (currentTime / duration);
+	playhead.style.marginLeft = playPercent + "px";
+	$("#clock").html(time);
+	playhead.style.marginLeft = playPercent + "px";
+	$.post( "/ticktock", {
+	    javascript_data: currentTime,
+	    success: function() {
+		$.ajax({
+		    url: "/eval_network",
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function(data) {
+			(source.getFeatures()).forEach(function(f) {
+			    for (var i = 0; i < data[1].length; i++) {
+				if (data[1][i].id == f.O.id) {
+				    f.flow = data[1][i].flow;
+				}
+			    }
+			});
+			layer.getSource().changed();
+		    }
+		});
+	    }
+	});
     }
 
     //Play and Pause

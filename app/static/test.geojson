@@ -12,7 +12,8 @@
       },
       "properties": {
         "id": "0",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Freudental"
       }
     },
     {
@@ -26,7 +27,8 @@
       },
       "properties": {
         "id": "1",
-        "nodeType": "Hoechstspannungsstation"
+        "nodeType": "Hoechstspannungsstation",
+        "name": "Bruchsal"
       }
     },
     {
@@ -40,7 +42,8 @@
       },
       "properties": {
         "id": "2",
-        "nodeType": "Windkraftanlage"
+        "nodeType": "Windkraftanlage",
+        "name": "Eppingen"
       }
     },
     {
@@ -54,7 +57,8 @@
       },
       "properties": {
         "id": "3",
-        "nodeType": "Windkraftanlage"
+        "nodeType": "Windkraftanlage",
+        "name": "Nordheim"
       }
     },
     {
@@ -68,7 +72,8 @@
       },
       "properties": {
         "id": "4",
-        "nodeType": "Hoechstspannungsstation"
+        "nodeType": "Hoechstspannungsstation",
+        "name": "Heilbronn"
       }
     },
     {
@@ -82,7 +87,8 @@
       },
       "properties": {
         "id": "5",
-        "nodeType": "Photovoltaikanlage"
+        "nodeType": "Photovoltaikanlage",
+        "name": "Gondelsheim"
       }
     },
     {
@@ -96,7 +102,8 @@
       },
       "properties": {
         "id": "6",
-        "nodeType": "Knoten"
+        "nodeType": "Knoten",
+        "name": "Zaberfeld"
       }
     },
     {
@@ -110,7 +117,8 @@
       },
       "properties": {
         "id": "7",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Neckarwestheim"
       }
     },
     {
@@ -124,7 +132,8 @@
       },
       "properties": {
         "id": "8",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Walzbachtal"
       }
     },
     {
@@ -138,7 +147,8 @@
       },
       "properties": {
         "id": "9",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Bretten"
       }
     },
     {
@@ -152,7 +162,8 @@
       },
       "properties": {
         "id": "10",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Knittlingen"
       }
     },
     {
@@ -166,7 +177,8 @@
       },
       "properties": {
         "id": "11",
-        "nodeType": "Hochspannungsstation"
+        "nodeType": "Hochspannungsstation",
+        "name": "Vaihingen"
       }
     },
     {
