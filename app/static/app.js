@@ -1,6 +1,7 @@
 var source;
 var layer;
-var status = 0;
+var overflow_status = 0;
+var updateStatus;
 var performAction;
 
 $(document).ready(function() {
@@ -150,14 +151,14 @@ $(document).ready(function() {
     };
 
     var getLineType = function(feature) {
-        var capacity = 13000;
+        var capacity = 75000;
         var flow = feature.flow;
         if (flow > capacity) {
-            return getLine([255, 0, 0, 1], 3);
-        } else if (flow > capacity * 2 / 3) {
-            return getLine([255, 255, 0, 1], 2);
+            return getLine([255, 0, 0, 1], 4);
+        } else if (flow > capacity * 2/3) {
+            return getLine([255, 255, 0, 1], 3);
         } else {
-            return getLine([0, 255, 0, 1], 2);
+            return getLine([0, 255, 0, 1], 3);
         }
 
     };
@@ -205,10 +206,35 @@ $(document).ready(function() {
                 f.test = "test";
             });
             source.addFeatures(features);
-        },
-        error: function(data, status, er) {
-            console.log(er);
-        }
+	    $.ajax({
+		url: "/eval_network",
+		dataType: 'json',
+		contentType: 'application/json',
+		mimeType: 'application/json',
+		success: function(data) {
+		    isMax = false;
+		    source.getFeatures().forEach(function(f) {
+			for (var i = 0; i < data[1].length; i++) {
+			    if (data[1][i].id == f.O.id) {
+				f.flow = data[1][i].flow;
+				if (f.flow > 75000) {
+				    isMax = true;
+				}
+				console.log(f.flow);
+			    }
+			}
+		    });
+		    if (isMax) {
+			overflow_status = 1
+			updateStatus();
+		    }
+		    layer.getSource().changed();
+		}
+	    });
+	},
+	error: function(data, status, er) {
+	    console.log(er);
+	}
     });
 
     var element = document.getElementById('popup');
@@ -255,8 +281,21 @@ $(document).ready(function() {
             }
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
-            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
-            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+            // var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
+            // var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+
+            if (id == 0 || id == 4) {
+                var ein = Math.random() * (58000 - 20000) + 20000;
+                var ver = Math.random() * (20000 - 0);
+            }else{
+                var ein = Math.random() * (20000 - 0);
+                var ver = Math.random() * (58000 - 20000) + 20000;
+            }
+            ein = parseInt(ein);
+            ver = parseInt(ver);
+
+            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + ein + " [kW]"));
+            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + ver + " [kW]"));
             var content = $("<div>")
                 .append(metadata)
                 .append(img)
