@@ -3,6 +3,7 @@ $(document).ready(function(){
     var interval;
     var currentTime = 0;
     var duration = 100;
+    var blub = 235;
     var pButton = document.getElementById('pButton'); // play button
     var playhead = document.getElementById('playhead'); // playhead
     var timeline = document.getElementById('timeline'); // timeline
@@ -69,9 +70,13 @@ $(document).ready(function(){
     // timeUpdate
     // Synchronizes playhead position with current point in audio
     function timeUpdate() {
-        var playPercent = timelineWidth * (currentTime / duration);
-        playhead.style.marginLeft = playPercent + "px";
-           }
+	var playPercent = timelineWidth * (currentTime / duration);
+	playhead.style.marginLeft = playPercent + "px";
+	$.post( "/ticktock", {
+	    javascript_data: blub 
+	});
+
+    }
 
     //Play and Pause
     function play() {
