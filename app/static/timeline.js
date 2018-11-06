@@ -54,7 +54,7 @@ $(document).ready(function(){
 
         if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
             playhead.style.marginLeft = newMargLeft + "px";
-            currentTime = (timeLineWidth * (newMargLeft / duration));
+            currentTime = (timelineWidth * (newMargLeft / duration));
         }
         if (newMargLeft < 0) {
             playhead.style.marginLeft = "0px";
