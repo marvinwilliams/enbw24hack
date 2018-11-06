@@ -1,498 +1,561 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.053219155,
-          49.01189669
-        ]
-      },
-      "properties": {
-        "id": "0",
-        "nodeType": "Hochspannungsstation",
-        "name": "Freudental"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.562129,
-          49.132546
-        ]
-      },
-      "properties": {
-        "id": "1",
-        "nodeType": "Hoechstspannungsstation",
-        "name": "Bruchsal"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.885450269,
-          49.13896124
-        ]
-      },
-      "properties": {
-        "id": "2",
-        "nodeType": "Windkraftanlage",
-        "name": "Eppingen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.108476368,
-          49.11116186
-        ]
-      },
-      "properties": {
-        "id": "3",
-        "nodeType": "Windkraftanlage",
-        "name": "Nordheim"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.2083388,
-          49.17678978
-        ]
-      },
-      "properties": {
-        "id": "4",
-        "nodeType": "Hoechstspannungsstation",
-        "name": "Heilbronn"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.665752917,
-          49.04914786
-        ]
-      },
-      "properties": {
-        "id": "5",
-        "nodeType": "Photovoltaikanlage",
-        "name": "Gondelsheim"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.892107764,
-          49.04914786
-        ]
-      },
-      "properties": {
-        "id": "6",
-        "nodeType": "Knoten",
-        "name": "Zaberfeld"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.185037566,
-          49.03204055
-        ]
-      },
-      "properties": {
-        "id": "7",
-        "nodeType": "Hochspannungsstation",
-        "name": "Neckarwestheim"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.562129,
-          49.01104132
-        ]
-      },
-      "properties": {
-        "id": "8",
-        "nodeType": "Hochspannungsstation",
-        "name": "Walzbachtal"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.665752917,
-          49.01104132
-        ]
-      },
-      "properties": {
-        "id": "9",
-        "nodeType": "Hochspannungsstation",
-        "name": "Bretten"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.792245332,
-          49.01104132
-        ]
-      },
-      "properties": {
-        "id": "10",
-        "nodeType": "Hochspannungsstation",
-        "name": "Knittlingen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.946898952,
-          49.01104132
-        ]
-      },
-      "properties": {
-        "id": "11",
-        "nodeType": "Hochspannungsstation",
-        "name": "Vaihingen"
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E01-02",
-            "start": "1",
-            "end": "2"
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.053219155,
+                    49.01189669
+                ]
+            },
+            "properties": {
+                "id": "0",
+                "nodeType": "Hochspannungsstation",
+                "name": "Freudental"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.562129, 49.132546 ], [ 8.885450269, 49.13896124]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E01-05",
-            "start": "1",
-            "end": "5"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.562129,
+                    49.132546
+                ]
+            },
+            "properties": {
+                "id": "1",
+                "nodeType": "Hoechstspannungsstation",
+                "name": "Bruchsal"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.562129, 49.132546 ], [ 8.665752917, 49.04914786]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E01-08",
-            "start": "1",
-            "end": "8"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.885450269,
+                    49.13896124
+                ]
+            },
+            "properties": {
+                "id": "2",
+                "nodeType": "Windkraftanlage",
+                "name": "Eppingen"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.562129, 49.132546 ], [ 8.562129, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E02-03",
-            "start": "2",
-            "end": "3"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.108476368,
+                    49.11116186
+                ]
+            },
+            "properties": {
+                "id": "3",
+                "nodeType": "Windkraftanlage",
+                "name": "Nordheim"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.885450269, 49.13896124 ], [ 9.108476368, 49.11116186]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E02-05",
-            "start": "2",
-            "end": "5"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.2083388,
+                    49.17678978
+                ]
+            },
+            "properties": {
+                "id": "4",
+                "nodeType": "Hoechstspannungsstation",
+                "name": "Heilbronn"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.885450269, 49.13896124 ], [ 8.665752917, 49.04914786]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E02-06",
-            "start": "2",
-            "end": "6"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.665752917,
+                    49.04914786
+                ]
+            },
+            "properties": {
+                "id": "5",
+                "nodeType": "Photovoltaikanlage",
+                "name": "Gondelsheim"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.885450269, 49.13896124 ], [ 8.892107764, 49.04914786]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E03-04",
-            "start": "3",
-            "end": "4"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.892107764,
+                    49.04914786
+                ]
+            },
+            "properties": {
+                "id": "6",
+                "nodeType": "Knoten",
+                "name": "Zaberfeld"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 9.108476368, 49.11116186 ], [ 9.2083388, 49.17678978]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E03-06",
-            "start": "3",
-            "end": "6"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.185037566,
+                    49.03204055
+                ]
+            },
+            "properties": {
+                "id": "7",
+                "nodeType": "Hochspannungsstation",
+                "name": "Neckarwestheim"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 9.108476368, 49.11116186 ], [ 8.892107764, 49.04914786]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E04-07",
-            "start": "4",
-            "end": "7"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.562129,
+                    49.01104132
+                ]
+            },
+            "properties": {
+                "id": "8",
+                "nodeType": "Hochspannungsstation",
+                "name": "Walzbachtal"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 9.2083388, 49.17678978 ], [ 9.185037566, 49.03204055]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E05-06",
-            "start": "5",
-            "end": "6"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.665752917,
+                    49.01104132
+                ]
+            },
+            "properties": {
+                "id": "9",
+                "nodeType": "Hochspannungsstation",
+                "name": "Bretten"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.665752917, 49.04914786 ], [ 8.892107764, 49.04914786]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E05-08",
-            "start": "5",
-            "end": "8"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.792245332,
+                    49.01104132
+                ]
+            },
+            "properties": {
+                "id": "10",
+                "nodeType": "Hochspannungsstation",
+                "name": "Knittlingen"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.665752917, 49.04914786 ], [ 8.562129, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E06-07",
-            "start": "6",
-            "end": "7"
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.946898952,
+                    49.01104132
+                ]
+            },
+            "properties": {
+                "id": "11",
+                "nodeType": "Hochspannungsstation",
+                "name": "Vaihingen"
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.892107764, 49.04914786 ], [ 9.185037566, 49.03204055]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E06-10",
-            "start": "6",
-            "end": "10"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E01-02",
+                "start": "1",
+                "end": "2"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.562129, 49.132546],
+                    [8.885450269, 49.13896124]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.892107764, 49.04914786 ], [ 8.792245332, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E06-11",
-            "start": "6",
-            "end": "11"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E01-05",
+                "start": "1",
+                "end": "5"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.562129, 49.132546],
+                    [8.665752917, 49.04914786]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.892107764, 49.04914786 ], [ 8.946898952, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E07-00",
-            "start": "7",
-            "end": "0"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E01-08",
+                "start": "1",
+                "end": "8"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.562129, 49.132546],
+                    [8.562129, 49.01104132]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 9.185037566, 49.03204055 ], [ 9.053219155, 49.01189669]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E08-09",
-            "start": "8",
-            "end": "9"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E02-03",
+                "start": "2",
+                "end": "3"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.885450269, 49.13896124],
+                    [9.108476368, 49.11116186]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.562129, 49.01104132 ], [ 8.665752917, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E09-10",
-            "start": "9",
-            "end": "10"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E02-05",
+                "start": "2",
+                "end": "5"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.885450269, 49.13896124],
+                    [8.665752917, 49.04914786]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.665752917, 49.01104132 ], [ 8.792245332, 49.01104132]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E11-00",
-            "start": "11",
-            "end": "0"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E02-06",
+                "start": "2",
+                "end": "6"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.885450269, 49.13896124],
+                    [8.892107764, 49.04914786]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.946898952, 49.01104132 ], [ 9.053219155, 49.01189669]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-        "properties": {
-            "id": "E05_10",
-            "start": "5",
-            "end": "10"
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E03-04",
+                "start": "3",
+                "end": "4"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [9.108476368, 49.11116186],
+                    [9.2083388, 49.17678978]
+                ]
+            }
         },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [ 8.665752917, 49.04914786 ], [ 8.792245332, 49.01104132]
-        ]
-      }
-    },
-      {
-          "type": "Feature",
-          "properties": {
-              "id": "21",
-              "nodeType": "Endnutzer",
-              "name": "Hans"
-          },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E03-06",
+                "start": "3",
+                "end": "6"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [9.108476368, 49.11116186],
+                    [8.892107764, 49.04914786]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E04-07",
+                "start": "4",
+                "end": "7"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [9.2083388, 49.17678978],
+                    [9.185037566, 49.03204055]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E05-06",
+                "start": "5",
+                "end": "6"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.665752917, 49.04914786],
+                    [8.892107764, 49.04914786]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E05-08",
+                "start": "5",
+                "end": "8"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.665752917, 49.04914786],
+                    [8.562129, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E06-07",
+                "start": "6",
+                "end": "7"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.892107764, 49.04914786],
+                    [9.185037566, 49.03204055]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E06-10",
+                "start": "6",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.892107764, 49.04914786],
+                    [8.792245332, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E06-11",
+                "start": "6",
+                "end": "11"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.892107764, 49.04914786],
+                    [8.946898952, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E07-00",
+                "start": "7",
+                "end": "0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [9.185037566, 49.03204055],
+                    [9.053219155, 49.01189669]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E08-09",
+                "start": "8",
+                "end": "9"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.562129, 49.01104132],
+                    [8.665752917, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E09-10",
+                "start": "9",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.665752917, 49.01104132],
+                    [8.792245332, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E11-00",
+                "start": "11",
+                "end": "0"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.946898952, 49.01104132],
+                    [9.053219155, 49.01189669]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E05_10",
+                "start": "5",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.665752917, 49.04914786],
+                    [8.792245332, 49.01104132]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "21",
+                "nodeType": "Endnutzer",
+                "name": "Hans"
+            },
 
-          "geometry": {
-              "type": "Point",
-              "coordinates": [
-                  8.719367980957031,
-                  48.99373491838787
-              ]
-          }
-      },
-      {
-          "type": "Feature",
-          "properties": {
-              "id": "23",
-              "nodeType": "Endnutzer",
-              "name": "Hans"
-          },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.719367980957031,
+                    48.99373491838787
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "23",
+                "nodeType": "Endnutzer",
+                "name": "Hans"
+            },
 
-          "geometry": {
-              "type": "Point",
-              "coordinates": [
-                  8.842277526855469,
-                  48.95429736286702
-              ]
-          }
-      },
-      {
-          "type": "Feature",
-          "properties": {
-              "id": "24",
-              "nodeType": "Endnutzer",
-              "name": "Hans"
-          },
-          "geometry": {
-              "type": "Point",
-              "coordinates": [
-                  8.919868469238281,
-                  48.95812980788307
-              ]
-          }
-      }
-  ]
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.842277526855469,
+                    48.95429736286702
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "24",
+                "nodeType": "Endnutzer",
+                "name": "Hans"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.919868469238281,
+                    48.95812980788307
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E09_21",
+                "start": "5",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.665752917, 49.01104132],
+                    [8.719367980957031, 48.99373491838787]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E21_23",
+                "start": "5",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.719367980957031, 48.99373491838787],
+                    [8.842277526855469, 48.95429736286702]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "E23_24",
+                "start": "5",
+                "end": "10"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [8.842277526855469, 48.95429736286702],
+                    [8.919868469238281, 48.95812980788307]
+                ]
+            }
+        }
+    ]
 }
