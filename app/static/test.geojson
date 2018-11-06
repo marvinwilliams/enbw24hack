@@ -486,7 +486,7 @@
             "properties": {
                 "id": "23",
                 "nodeType": "Endnutzer",
-                "name": "Hans"
+                "name": "Peter"
             },
 
             "geometry": {
@@ -502,7 +502,7 @@
             "properties": {
                 "id": "24",
                 "nodeType": "Endnutzer",
-                "name": "Hans"
+                "name": "Dieter"
             },
             "geometry": {
                 "type": "Point",
@@ -516,8 +516,8 @@
             "type": "Feature",
             "properties": {
                 "id": "E09_21",
-                "start": "5",
-                "end": "10"
+                "start": "9",
+                "end": "21"
             },
             "geometry": {
                 "type": "LineString",
@@ -531,8 +531,8 @@
             "type": "Feature",
             "properties": {
                 "id": "E21_23",
-                "start": "5",
-                "end": "10"
+                "start": "21",
+                "end": "23"
             },
             "geometry": {
                 "type": "LineString",
@@ -546,8 +546,8 @@
             "type": "Feature",
             "properties": {
                 "id": "E23_24",
-                "start": "5",
-                "end": "10"
+                "start": "23",
+                "end": "24"
             },
             "geometry": {
                 "type": "LineString",

@@ -145,3 +145,7 @@
     margin-left:5px;
     margin-right:5px;
 }
+
+.pActive{
+    border: 3px solid red;
+}

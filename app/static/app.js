@@ -152,6 +152,15 @@ $(document).ready(function() {
 
     var getLineType = function(feature) {
         var capacity = 75000;
+        if (feature.get('start') == "9" && feature.get('end') == "21") {
+            return getLine([90, 90, 90, 1], 2);
+        }
+        if (feature.get('start') == "21" && feature.get('end') == "23") {
+            return getLine([90, 90, 90, 1], 2);
+        }
+        if (feature.get('start') == "23" && feature.get('end') == "24") {
+            return getLine([90, 90, 90, 1], 2);
+        }
         var flow = feature.flow;
         if (flow > capacity) {
             return getLine([255, 0, 0, 1], 4);
@@ -404,5 +413,7 @@ $(document).ready(function() {
             // tell OpenLayers to continue postcompose animation
             map.render();
         }
+	layer.getSource().changed();
+
     }
 });
