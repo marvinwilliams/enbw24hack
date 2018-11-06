@@ -115,6 +115,11 @@ $(document).ready(function() {
         }
 
         var time = $("<div>").append($("<h3>").text(timeString));
+	      var playPercent = timelineWidth * (currentTime / duration);
+	      playhead.style.marginLeft = playPercent + "px";
+	      $.post( "/ticktock", {
+	          javascript_data: blub 
+	      });
 
         $("#clock").html(time);
     }
