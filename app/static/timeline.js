@@ -30,7 +30,9 @@ $(document).ready(function() {
                 break;
         }
         $("#status").html($("<div>").append($("<h3>").text("Status: " + text)).css("color", color));
+
     };
+    // status = 1;
     updateStatus();
 
     // timeline width adjusted for playhead

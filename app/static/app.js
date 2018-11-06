@@ -1,6 +1,7 @@
 var source;
 var layer;
 var status = 0;
+var performAction;
 
 $(document).ready(function() {
     var longitude = 49.078191;
@@ -79,7 +80,7 @@ $(document).ready(function() {
 
     };
 
-    
+
 
 
     var getLine = function(color, width) {
@@ -237,6 +238,8 @@ $(document).ready(function() {
         var geometryType = feature.getGeometry().getType();
         console.log(feature);
 
+        var metadata = $("<div>").append($("<h1 style = 'margin-top: 60px;'>").text("Metadata"));
+
         if (geometryType == 'Point') {
             feature.setStyle(getImageIcon(feature.get("nodeType"), true));
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
@@ -245,6 +248,7 @@ $(document).ready(function() {
             var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
             var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
             var content = $("<div>")
+                .append(metadata)
                 .append(img)
                 .append(info).append(id).append(feed).append(consumption);
             $(".data").html(content);
@@ -255,8 +259,8 @@ $(document).ready(function() {
             var info = $("<div>").append($("<h3>").text("Typ: " + "Kante"));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("id")));
             var capacity = $("<div>").append($("<h3>").text("Name: " + feature.get("capacity")));
-            var content = $("<div>")
-                .append(info).append(id).append(capacity);
+            var content = $("<div>").
+            append(metadata).append(info).append(id).append(capacity);
             $(".data").html(content);
 
         }
@@ -271,5 +275,69 @@ $(document).ready(function() {
         }
         $(".data").html("");
     });
+   var easeIn = function(t) {
+        return Math.pow(t, 3);
+}
+    var easeOut = function(t) {
+        return 1 - easeIn(1 - t);
+    };
 
+
+    getFeature = function(id) {
+        var feature = null;
+                    source.getFeatures().forEach(function(f) {
+            if (f.get("id") == id) {
+                feature = f;
+            }
+        });
+        return feature;
+    };
+
+    performAction = function(action) {
+        console.log("action performed" + action);
+        switch (action) {
+        case 0:
+            console.log("yay");
+            var randomFeature = 5;
+            flash(getFeature(5));
+            break;
+        }
+    };
+
+    var duration = 5000;
+
+    function flash(feature) {
+        var start = new Date().getTime();
+        var listenerKey = map.on('postcompose', animate);
+
+        function animate(event) {
+            var vectorContext = event.vectorContext;
+            var frameState = event.frameState;
+            var flashGeom = feature.getGeometry().clone();
+            var elapsed = frameState.time - start;
+            var elapsedRatio = elapsed / duration;
+            // radius will be 5 at start and 30 at end.
+            var radius = easeOut(elapsedRatio) * 25 + 15;
+            var opacity = easeOut(1 - elapsedRatio);
+
+            var style = new ol.style.Style({
+                image: new ol.style.Circle({
+                    radius: radius,
+                    stroke: new ol.style.Stroke({
+                        color: 'rgba(255, 0, 0, ' + opacity + ')',
+                        width: 2.25 + opacity
+                    })
+                })
+            });
+
+            vectorContext.setStyle(style);
+            vectorContext.drawGeometry(flashGeom);
+            if (elapsed > duration) {
+                ol.Observable.unByKey(listenerKey);
+                return;
+            }
+            // tell OpenLayers to continue postcompose animation
+            map.render();
+        }
+    }
 });
