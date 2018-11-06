@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, Response, stream_with_context, json, url_for, send_file
+from flask import Flask, jsonify, render_template, Response, stream_with_context, json, url_for, send_file, request
 import psycopg2
 import psycopg2.extras
 import algo
@@ -23,6 +23,12 @@ def points_of_interest():
 @app.route('/eval_network')
 def call_eval_network():
     return algo.eval_network()
+
+@app.route('/ticktock', methods = ['POST'])
+def get_post_javascript_data():
+    jsdata = request.form['javascript_data']
+    print(jsdata)
+    return jsdata
 
 def get_cursor():
     return conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
