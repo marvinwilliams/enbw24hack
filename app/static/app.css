@@ -92,6 +92,17 @@
     /* border: solid; */
 
 }
+#chartContainer2{
+    /* position: absolute; */
+    /* bottom: 0px; */
+    /* left: 150px; */
+    /* right: 0px; */
+	  width: 250px;
+	  height: 80px;
+	  margin: auto auto auto auto;
+    /* border: solid; */
+
+}
 
 #pButton{
     height:60px; 
