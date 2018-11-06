@@ -1,6 +1,7 @@
 var source;
 var layer;
-var status = 0;
+var overflow_status = 0;
+var updateStatus;
 var performAction;
 
 $(document).ready(function() {
@@ -205,14 +206,22 @@ $(document).ready(function() {
 		contentType: 'application/json',
 		mimeType: 'application/json',
 		success: function(data) {
-		    (source.getFeatures()).forEach(function(f) {
+		    isMax = false;
+		    source.getFeatures().forEach(function(f) {
 			for (var i = 0; i < data[1].length; i++) {
 			    if (data[1][i].id == f.O.id) {
 				f.flow = data[1][i].flow;
+				if (f.flow > 75000) {
+				    isMax = true;
+				}
 				console.log(f.flow);
 			    }
 			}
 		    });
+		    if (isMax) {
+			overflow_status = 1
+			updateStatus();
+		    }
 		    layer.getSource().changed();
 		}
 	    });
