@@ -35,15 +35,12 @@ def init_network():
 
 
 def eval_network():
-<<<<<<< HEAD
     global n_vertices
     global n_edges
     global feed_cons
     global edge
     global pathGroupList
 
-=======
->>>>>>> 89e6a7ecad6da1fc88c60c7355b3c1f0a07f579d
     with open("static/scenario.json", "r") as data_file:
         data = json.load(data_file)
     v_Feed = []
@@ -66,16 +63,16 @@ def eval_network():
 
         for c in v_Consumption:
             for f in v_Feed:
-<<<<<<< HEAD
-                feed_cons[f["id"]][c["id"]]["flow"] = c["consumption_remaining"] * (1.0 / feed_cons[f["id"]][c["id"]]["resistance"]) / c["leitwert_remaining"]                       
-        
-=======
                 feed_cons[f["id"]][
                     c["id"]]["flow"] = c["consumption_remaining"] * (
                         1.0 / feed_cons[f["id"]][c["id"]]["resistance"]
                     ) / c["leitwert_remaining"]
 
->>>>>>> 89e6a7ecad6da1fc88c60c7355b3c1f0a07f579d
+                feed_cons[f["id"]][
+                    c["id"]]["flow"] = c["consumption_remaining"] * (
+                        1.0 / feed_cons[f["id"]][c["id"]]["resistance"]
+                    ) / c["leitwert_remaining"]
+
         v_flow = [0] * n_vertices
 
         for c in v_Consumption:
