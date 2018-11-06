@@ -245,8 +245,21 @@ $(document).ready(function() {
             var img = $("<img>").attr("src", getImageSrcByType(feature.get("nodeType"))).width(100);
             var info = $("<div>").append($("<h3>").text("Typ: " + feature.get("nodeType")));
             var id = $("<div>").append($("<h3>").text("Name: " + feature.get("name")));
-            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
-            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+            // var feed = $("<div>").append($("<h4>").text("Einspeisung: " + feature.get("feed_remaining") + "[kW]"));
+            // var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + feature.get("consumption_remaining") + "[kW]"));
+
+            if (id == 0 || id == 4) {
+                var ein = Math.random() * (58000 - 20000) + 20000;
+                var ver = Math.random() * (20000 - 0);
+            }else{
+                var ein = Math.random() * (20000 - 0);
+                var ver = Math.random() * (58000 - 20000) + 20000;
+            }
+            ein = parseInt(ein);
+            ver = parseInt(ver);
+
+            var feed = $("<div>").append($("<h4>").text("Einspeisung: " + ein + " [kW]"));
+            var consumption = $("<div>").append($("<h4>").text("Verbrauch: " + ver + " [kW]"));
             var content = $("<div>")
                 .append(metadata)
                 .append(img)
