@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.11.4)  6 NOV 2018 11:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2018.11.4)  6 NOV 2018 11:26
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -757,7 +757,17 @@ LaTeX Info: Redefining \cite on input line 694.
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
 No file presentation.bbl.
-No file presentation.aux.
+(./presentation.aux
+
+LaTeX Warning: Label `fig:projectplan' multiply defined.
+
+
+LaTeX Warning: Label `fig:projectplan' multiply defined.
+
+
+LaTeX Warning: Label `fig:projectplan' multiply defined.
+
+)
 \openout1 = `presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
@@ -775,7 +785,7 @@ LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 65.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
@@ -860,6 +870,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 65.
 LaTeX Info: Redefining \pageref on input line 65.
 LaTeX Info: Redefining \nameref on input line 65.
+
+(./presentation.out) (./presentation.out)
 \@outlinefile=\write5
 \openout5 = `presentation.out'.
 
@@ -929,10 +941,10 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-)
-No file presentation.nav.
+) (./presentation.nav)
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 5.51999pt on input line 65.
+
 ./presentation.tex:74: Illegal parameter number in definition of \beamer@shortt
 itle.
 <to be read again> 
@@ -947,12 +959,12 @@ are all screwed up? I'm going to assume that you meant ##.
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 76.
 
-<logos/kitlogo_de_rgb.pdf, id=14, 196.91472pt x 90.65388pt>
+<logos/kitlogo_de_rgb.pdf, id=30, 196.91472pt x 90.65388pt>
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
 Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 84.
 (pdftex.def)             Requested size: 65.44133pt x 30.12611pt.
-<logos/iosblogo.png, id=15, 2007.5pt x 385.44pt>
+<logos/iosblogo.png, id=31, 2007.5pt x 385.44pt>
 File: logos/iosblogo.png Graphic file (type png)
 <use logos/iosblogo.png>
 Package pdftex.def Info: logos/iosblogo.png  used on input line 84.
@@ -977,25 +989,25 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 7.35999pt on input line 84.
-<logos/title2.png, id=18, 481.0773pt x 157.5486pt>
+<logos/title2.png, id=34, 2007.5pt x 385.44pt>
 File: logos/title2.png Graphic file (type png)
 <use logos/title2.png>
 Package pdftex.def Info: logos/title2.png  used on input line 84.
-(pdftex.def)             Requested size: 358.50946pt x 113.80992pt.
+(pdftex.def)             Requested size: 358.48564pt x 113.80968pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/kitlogo_de_rgb.pdf
 > <./logos/iosblogo.png> <./logos/title2.png>]
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 109.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 110.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:109: You can't use `macro parameter character #' in restrict
+./presentation.tex:110: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.109     \end{frame}
+l.110     \end{frame}
                      
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1007,14 +1019,14 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ]
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 109.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 110.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:109: You can't use `macro parameter character #' in restrict
+./presentation.tex:110: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.109     \end{frame}
+l.110     \end{frame}
                      
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1026,14 +1038,14 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ]
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 109.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 110.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:109: You can't use `macro parameter character #' in restrict
+./presentation.tex:110: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.109     \end{frame}
+l.110     \end{frame}
                      
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1045,14 +1057,14 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ]
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 109.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 110.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:109: You can't use `macro parameter character #' in restrict
+./presentation.tex:110: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.109     \end{frame}
+l.110     \end{frame}
                      
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1062,13 +1074,30 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 [5
 
 ]
-<resources/overview.png, id=159, 1365.1pt x 672.5125pt>
+File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
+<use logos/kitlogo_de_rgb.pdf>
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 110.
+(pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
+
+./presentation.tex:110: You can't use `macro parameter character #' in restrict
+ed horizontal mode.
+\beamer@shorttitle ->##
+                       enBW24Hack
+l.110     \end{frame}
+                     
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[6
+
+]
+<resources/overview.png, id=246, 1365.1pt x 672.5125pt>
 File: resources/overview.png Graphic file (type png)
 <use resources/overview.png>
 Package pdftex.def Info: resources/overview.png  used on input line 120.
 (pdftex.def)             Requested size: 327.20668pt x 161.1908pt.
-LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 120.
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
 Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 120.
@@ -1085,58 +1114,28 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-[6
-
- <./resources/overview.png>]
-<resources/enduser.png, id=188, 729.72626pt x 664.4825pt>
-File: resources/enduser.png Graphic file (type png)
-<use resources/enduser.png>
-Package pdftex.def Info: resources/enduser.png  used on input line 129.
-(pdftex.def)             Requested size: 327.20668pt x 297.94974pt.
-File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
-<use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 129.
-(pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
-
-Overfull \vbox (126.28348pt too high) detected at line 129
- []
-
-./presentation.tex:129: You can't use `macro parameter character #' in restrict
-ed horizontal mode.
-\beamer@shorttitle ->##
-                       enBW24Hack
-l.129   \end{frame}
-                   
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
 [7
 
- <./resources/enduser.png>]
-<resources/selected.png, id=218, 1365.1pt x 623.32875pt>
-File: resources/selected.png Graphic file (type png)
-<use resources/selected.png>
-Package pdftex.def Info: resources/selected.png  used on input line 137.
-(pdftex.def)             Requested size: 327.20668pt x 149.40222pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:projectpl
-an}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.137 \end{frame}
-                 
+ <./resources/overview.png>]
+<resources/enduser.png, id=283, 729.72626pt x 664.4825pt>
+File: resources/enduser.png Graphic file (type png)
+<use resources/enduser.png>
+Package pdftex.def Info: resources/enduser.png  used on input line 128.
+(pdftex.def)             Requested size: 227.62204pt x 207.26497pt.
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 137.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 128.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:137: You can't use `macro parameter character #' in restrict
+Overfull \vbox (5.95174pt too high) detected at line 128
+ []
+
+./presentation.tex:128: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.137 \end{frame}
-                 
+l.128   \end{frame}
+                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
@@ -1144,28 +1143,28 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 
 [8
 
- <./resources/selected.png>]
-<resources/action.png, id=247, 1365.1pt x 672.5125pt>
-File: resources/action.png Graphic file (type png)
-<use resources/action.png>
-Package pdftex.def Info: resources/action.png  used on input line 146.
-(pdftex.def)             Requested size: 327.20668pt x 161.1908pt.
+ <./resources/enduser.png>]
+<resources/selected.png, id=319, 1365.1pt x 623.32875pt>
+File: resources/selected.png Graphic file (type png)
+<use resources/selected.png>
+Package pdftex.def Info: resources/selected.png  used on input line 135.
+(pdftex.def)             Requested size: 327.20668pt x 149.40222pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:projectpl
 an}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.146 \end{frame}
+l.135 \end{frame}
                  
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 146.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 135.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
 
-./presentation.tex:146: You can't use `macro parameter character #' in restrict
+./presentation.tex:135: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.146 \end{frame}
+l.135 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1174,24 +1173,84 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 
 [9
 
- <./resources/action.png>]
-No file presentation.bbl.
+ <./resources/selected.png>]
+<resources/action.png, id=355, 1365.1pt x 672.5125pt>
+File: resources/action.png Graphic file (type png)
+<use resources/action.png>
+Package pdftex.def Info: resources/action.png  used on input line 143.
+(pdftex.def)             Requested size: 327.20668pt x 161.1908pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:projectpl
+an}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.143   \end{frame}
+                   
 File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
 <use logos/kitlogo_de_rgb.pdf>
-Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 152.
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 143.
 (pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
-./presentation.tex:152: You can't use `macro parameter character #' in restrict
+
+./presentation.tex:143: You can't use `macro parameter character #' in restrict
 ed horizontal mode.
 \beamer@shorttitle ->##
                        enBW24Hack
-l.152 \end{frame}
-                 
+l.143   \end{frame}
+                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 [10
+
+ <./resources/action.png>]
+<resources/mark.png, id=390, 1365.1pt x 623.32875pt>
+File: resources/mark.png Graphic file (type png)
+<use resources/mark.png>
+Package pdftex.def Info: resources/mark.png  used on input line 151.
+(pdftex.def)             Requested size: 327.20668pt x 149.40222pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:projectpl
+an}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.151 \end{frame}
+                 
+File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
+<use logos/kitlogo_de_rgb.pdf>
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 151.
+(pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
+
+./presentation.tex:151: You can't use `macro parameter character #' in restrict
+ed horizontal mode.
+\beamer@shorttitle ->##
+                       enBW24Hack
+l.151 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[11
+
+ <./resources/mark.png>]
+No file presentation.bbl.
+File: logos/kitlogo_de_rgb.pdf Graphic file (type pdf)
+<use logos/kitlogo_de_rgb.pdf>
+Package pdftex.def Info: logos/kitlogo_de_rgb.pdf  used on input line 157.
+(pdftex.def)             Requested size: 39.83385pt x 18.33794pt.
+./presentation.tex:157: You can't use `macro parameter character #' in restrict
+ed horizontal mode.
+\beamer@shorttitle ->##
+                       enBW24Hack
+l.157 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[12
 
 ]
 \tf@nav=\write6
@@ -1203,40 +1262,34 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 160.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 160.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 160.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 160.
+Package rerunfilecheck Info: File `presentation.out' has not changed.
+(rerunfilecheck)             Checksum: 428CB4216F8E17084B4038EC7A673895;104.
 
 
-Package rerunfilecheck Warning: File `presentation.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `presentation.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  428CB4216F8E17084B4038EC7A673895;104.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18253 strings out of 492638
- 340665 string characters out of 6131710
- 441471 words of memory out of 5000000
- 21683 multiletter control sequences out of 15000+600000
- 16019 words of font info for 31 fonts, out of 8000000 for 9000
+ 18289 strings out of 492638
+ 340954 string characters out of 6131710
+ 443777 words of memory out of 5000000
+ 21707 multiletter control sequences out of 15000+600000
+ 15413 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,55p,786b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,55p,786b,748s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/helvetic/uhvr8a.pfb>
-Output written on presentation.pdf (10 pages, 3179758 bytes).
+Output written on presentation.pdf (12 pages, 1202048 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 25 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 480 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
